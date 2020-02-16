@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    protected Transform tankTransform;
-    protected Rigidbody tankRB;
 
-    [SerializeField]
-    protected float movementSpeed;
-    [SerializeField]
-    float rotationSpeed;
+    public GameObject Bullet;
 
-    // Start is called before the first frame update
+    protected Transform Turret;
+    protected Transform bulletSpawnPoint;
+    protected float currentSpeed, targetSpeed, rotSpeed;
+    protected float turretRotSpeed = 5.0f;
+    protected float maxForwardSpeed = 5.0f;
+    
+    // Bullet shotting rate
+    protected float shootRate = 0.5f;
+    protected float elapsedTime;
+
     void Start()
     {
-        tankTransform = GetComponent<Transform>();
-        tankRB = GetComponent<Rigidbody>();
-    }
 
-    // Update is called once per frame
+    }
+    
     void Update()
     {
         

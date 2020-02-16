@@ -6,19 +6,26 @@ public class PlayerTank : Tank
 {
     float horizontalValue = 0;
     float verticalValue = 0;
-
-    // Start is called before the first frame update
+    
+    [SerializeField]
+    [Tooltip("How fast the tank speeds up and slows down")]
+    float resistanceSpeed = 10;
+    
     void Start()
     {
-        
-    }
+        // Tank Settings
+        rotSpeed = 150.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Get the turret
+        Turret = gameObject.transform.GetChild(0).transform;
+        bulletSpawnPoint = Turret.GetChild(0).transform;
     }
     
+    void Update()
+    {
+        UpdateMovement();
+    }
+
     void UpdateMovement()
     {
         horizontalValue = Input.GetAxis("Horizontal");
@@ -26,22 +33,53 @@ public class PlayerTank : Tank
 
         if (horizontalValue > 0)
         {
-            // Move Up
-            Debug.Log("Move Up");
-            this.tankRB.AddForce(this.tankTransform.forward * this.movementSpeed);
+            MoveRight();
         }
         else if (horizontalValue < 0)
         {
-            // Move Down
+            MoveLeft();
+        }
+        else
+        {
+            targetSpeed = 0;
         }
 
         if (verticalValue > 0)
         {
-            // Move Right
+            MoveUp();
         }
         else if (verticalValue < 0)
         {
-            // Move Left
+            MoveDown();
         }
+        else
+        {
+            targetSpeed = 0;
+        }
+
+        // Find current speed
+        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, resistanceSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed);
+    }
+
+
+    void MoveUp()
+    {
+        targetSpeed = maxForwardSpeed;
+    }
+
+    void MoveDown()
+    {
+        targetSpeed = -maxForwardSpeed;
+    }
+
+    void MoveRight()
+    {
+        this.transform.Rotate(0, rotSpeed * Time.deltaTime, 0.0f);
+    }
+
+    void MoveLeft()
+    {
+        this.transform.Rotate(0, -rotSpeed * Time.deltaTime, 0.0f);
     }
 }
