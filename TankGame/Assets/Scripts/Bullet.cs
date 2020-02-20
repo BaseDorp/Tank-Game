@@ -1,18 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        EntityManager entityManager =  World.DefaultGameObjectInjectionWorld.EntityManager;
+        Entity entity = entityManager.CreateEntity(typeof(BulletComponent));
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        entityManager.SetComponentData(entity, new BulletComponent { movementSpeed = 50 });
     }
 }

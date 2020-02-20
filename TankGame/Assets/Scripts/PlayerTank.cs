@@ -31,13 +31,14 @@ public class PlayerTank : Tank
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
+        // Moving and Rotating
         if (horizontalValue > 0)
         {
-            MoveRight();
+            TurnRight();
         }
         else if (horizontalValue < 0)
         {
-            MoveLeft();
+            TurnLeft();
         }
         else
         {
@@ -57,29 +58,17 @@ public class PlayerTank : Tank
             targetSpeed = 0;
         }
 
+        // Firing
+        if (Input.GetAxis("Fire1") == 1)
+        {
+            this.FireBullet();
+        }
+
         // Find current speed
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, resistanceSpeed * Time.deltaTime);
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed);
     }
 
 
-    void MoveUp()
-    {
-        targetSpeed = maxForwardSpeed;
-    }
-
-    void MoveDown()
-    {
-        targetSpeed = -maxForwardSpeed;
-    }
-
-    void MoveRight()
-    {
-        this.transform.Rotate(0, rotSpeed * Time.deltaTime, 0.0f);
-    }
-
-    void MoveLeft()
-    {
-        this.transform.Rotate(0, -rotSpeed * Time.deltaTime, 0.0f);
-    }
+    
 }

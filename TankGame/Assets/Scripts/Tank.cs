@@ -26,4 +26,30 @@ public class Tank : MonoBehaviour
     {
         
     }
+
+    protected void FireBullet()
+    {
+        Instantiate(Bullet, bulletSpawnPoint);
+        Debug.Log($"{this.name} fired a bullet");
+    }
+
+    protected void MoveUp()
+    {
+        this.targetSpeed = maxForwardSpeed;
+    }
+
+    protected void MoveDown()
+    {
+        this.targetSpeed = -maxForwardSpeed;
+    }
+
+    protected void TurnRight()
+    {
+        this.transform.Rotate(0, rotSpeed * Time.deltaTime, 0.0f);
+    }
+
+    protected void TurnLeft()
+    {
+        this.transform.Rotate(0, -rotSpeed * Time.deltaTime, 0.0f);
+    }
 }
