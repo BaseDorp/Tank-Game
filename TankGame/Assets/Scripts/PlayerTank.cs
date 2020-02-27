@@ -7,23 +7,22 @@ public class PlayerTank : Tank
     float horizontalValue = 0;
     float verticalValue = 0;
     
-    [SerializeField]
-    [Tooltip("How fast the tank speeds up and slows down")]
-    float resistanceSpeed = 10;
-    
     void Start()
     {
         // Tank Settings
         rotSpeed = 150.0f;
-
-        // Get the turret
-        Turret = gameObject.transform.GetChild(0).transform;
-        bulletSpawnPoint = Turret.GetChild(0).transform;
     }
     
     void Update()
     {
         UpdateMovement();
+
+        // Firing
+        if (Input.GetAxis("Fire1") == 1)
+        {
+            this.FireBullet();
+        }
+        
     }
 
     void UpdateMovement()
@@ -31,14 +30,16 @@ public class PlayerTank : Tank
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
         // Moving and Rotating
         if (horizontalValue > 0)
         {
-            TurnRight();
+            MoveRight();
         }
         else if (horizontalValue < 0)
         {
-            TurnLeft();
+            MoveLeft();
         }
         else
         {
@@ -58,17 +59,17 @@ public class PlayerTank : Tank
             targetSpeed = 0;
         }
 
-        // Firing
-        if (Input.GetAxis("Fire1") == 1)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.FireBullet();
+            TurnRight();
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            TurnLeft();
         }
 
         // Find current speed
-        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, resistanceSpeed * Time.deltaTime);
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed);
+        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 7.0f * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
     }
-
-
-    
 }
