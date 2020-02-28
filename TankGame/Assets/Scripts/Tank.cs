@@ -7,18 +7,21 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected GameObject Bullet;
     [SerializeField]
+    protected CharacterController controller;
+    [SerializeField]
     protected Transform Turret;
     [SerializeField]
     protected Transform Base;
     [SerializeField]
     protected Transform bulletSpawnPoint;
 
-    protected float currentSpeed, targetSpeed, rotSpeed;
+    //protected float currentSpeed, targetSpeed, rotSpeed;
     protected float turretRotSpeed = 500.0f;
-    protected float maxForwardSpeed = 5.0f;
+    protected float movementSpeed = 5.0f;
+    protected Vector3 moveDirection;
     
     // Bullet shotting rate
-    protected float shootRate = 0.5f;
+    protected float shootRate = 1f;
     protected float elapsedTime;
 
     void Start()
@@ -26,31 +29,38 @@ public class Tank : MonoBehaviour
 
     }
     
-    protected void Update()
+    void Update()
     {
-        // Find current speed
-        this.currentSpeed = Mathf.Lerp(this.currentSpeed, this.targetSpeed, 7.0f * Time.deltaTime);
-        this.transform.Translate(this.transform.forward * Time.deltaTime * this.currentSpeed, Space.World);
+        //// Find current speed
+        //this.currentSpeed = Mathf.Lerp(this.currentSpeed, this.targetSpeed, 7.0f * Time.deltaTime);
+        //this.transform.Translate(this.transform.forward * Time.deltaTime * this.currentSpeed, Space.World);
 
-        Debug.Log(currentSpeed);
+        //this.moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        //controller.Move(this.moveDirection * this.movementSpeed * Time.deltaTime);
     }
 
     protected void FireBullet()
     {
-        Instantiate(Bullet, bulletSpawnPoint);
-        Debug.Log($"{this.name} fired a bullet");
+        elapsedTime += Time.deltaTime;
+        if (this.elapsedTime >= this.shootRate)
+        {
+            
+            //Reset the time
+            this.elapsedTime = 0.0f;
+
+            Instantiate(this.Bullet, this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
+            Debug.Log($"{this.name} fired a bullet");
+        }
     }
 
     protected void MoveUp()
     {
         this.Base.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-        this.targetSpeed = maxForwardSpeed;
     }
 
     protected void MoveDown()
     {
         this.Base.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
-        this.targetSpeed = -maxForwardSpeed;
     }
 
     protected void MoveLeft()
