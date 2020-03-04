@@ -6,6 +6,7 @@ public class PlayerTank : Tank
 {
     float horizontalValue = 0;
     float verticalValue = 0;
+    float gravity = 0;
     
     void Start()
     {
@@ -30,7 +31,16 @@ public class PlayerTank : Tank
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        if (controller.isGrounded)
+        {
+            gravity = 0;
+        }
+        else
+        {
+            gravity -= 10f * Time.deltaTime;
+        }
+
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
         controller.Move(input * this.movementSpeed * Time.deltaTime);
 
         // Moving and Rotating

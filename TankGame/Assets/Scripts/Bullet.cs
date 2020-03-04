@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     RaycastHit hitRay;
     LayerMask layerMask;
     bool yes = true;
+    int wallBounce = 2;
 
     void Start()
     {
@@ -28,17 +29,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if (yes)
-        {
-            this.transform.position += this.transform.forward * this.Speed * Time.deltaTime;
-        }
-        else
-        {
-            this.transform.position -= this.transform.forward * this.Speed * Time.deltaTime;
-        }
-
-
-        //this.transform.Translate(Vector3.forward * Time.deltaTime * Speed, Space.Self);
+        this.transform.position += this.transform.forward * this.Speed * Time.deltaTime;
 
         ray = new Ray(this.transform.position, this.transform.forward);
         if (Physics.Raycast(ray, out hitRay, Time.deltaTime * Speed + .1f, layerMask))
@@ -54,22 +45,21 @@ public class Bullet : MonoBehaviour
         //Instantiate(Explosion, contact.point, Quaternion.identity);
         if (collision.collider.tag == "Wall")
         {
-            Debug.Log(this.name);
-            // Make sure the bullet doesn't keep bouncing off into the same wall
-            //if (this.lastColName != collision.collider.name)
-            //{
-            //    this.lastColName = collision.collider.name;
-
-
-            //    //this.transform.rotation = Quaternion.Inverse(this.transform.rotation);
-            //}
-
-
-            Vector3 v = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
-            float rot = 90 - Mathf.Atan2(v.z, v.x) * Mathf.Rad2Deg;
-            transform.eulerAngles = new Vector3(0, rot, 0);
-
-            //yes = !yes;
+            if (this.wallBounce > 0)
+            {
+                this.wallBounce--;
+                Vector3 v = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
+                float rot = 90 - Mathf.Atan2(v.z, v.x) * Mathf.Rad2Deg;
+                transform.eulerAngles = new Vector3(0, rot, 0);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        if (collision.collider.tag == "Player" || collision.collider.tag == "bullet")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

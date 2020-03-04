@@ -15,7 +15,14 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected Transform bulletSpawnPoint;
 
-    //protected float currentSpeed, targetSpeed, rotSpeed;
+    enum TankState
+    {
+        Attack,
+        Patrol,
+        Dead,
+    }
+    TankState tankState;
+    
     protected float turretRotSpeed = 500.0f;
     protected float movementSpeed = 5.0f;
     protected Vector3 moveDirection;
@@ -26,7 +33,7 @@ public class Tank : MonoBehaviour
 
     void Start()
     {
-
+        tankState = TankState.Patrol;
     }
     
     void Update()
@@ -44,7 +51,7 @@ public class Tank : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (this.elapsedTime >= this.shootRate)
         {
-            
+            tankState = TankState.Attack;
             //Reset the time
             this.elapsedTime = 0.0f;
 
@@ -82,5 +89,15 @@ public class Tank : MonoBehaviour
     protected void TurnLeft()
     {
         this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Tank got shot
+        if (collision.collider.tag == "bullet")
+        {
+            //this.enabled = false;
+            tankState = TankState.Dead;
+        }
     }
 }
