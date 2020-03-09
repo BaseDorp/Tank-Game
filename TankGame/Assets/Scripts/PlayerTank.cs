@@ -23,7 +23,9 @@ public class PlayerTank : Tank
         {
             this.FireBullet();
         }
-        
+
+        // Changes the Rotation of the base of the tank based of direction of movement
+        BaseRotation(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
     }
 
     void UpdateMovement()
@@ -40,26 +42,8 @@ public class PlayerTank : Tank
             gravity -= 10f * Time.deltaTime;
         }
 
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
+        this.input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
         controller.Move(input * this.movementSpeed * Time.deltaTime);
-
-        // Moving and Rotating
-        //if (horizontalValue > 0)
-        //{
-        //    MoveRight();
-        //}
-        //if (horizontalValue < 0)
-        //{
-        //    MoveLeft();
-        //}
-        //if (verticalValue > 0)
-        //{
-        //    MoveUp();
-        //}
-        //else if (verticalValue < 0)
-        //{
-        //    MoveDown();
-        //}
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -69,9 +53,5 @@ public class PlayerTank : Tank
         {
             TurnLeft();
         }
-
-        //// Find current speed
-        //currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 7.0f * Time.deltaTime);
-        //transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
     }
 }

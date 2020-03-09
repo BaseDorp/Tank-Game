@@ -21,7 +21,7 @@ public class AiTank : Tank
         FireBullet();
         Aim();
 
-        UpdateMovement();
+        //UpdateMovement();
     }
 
     void Aim()
@@ -45,6 +45,8 @@ public class AiTank : Tank
 
     void UpdateMovement()
     {
+        // TODO GOES THROUGH WALLS
+        // Follows the player
         this.lastPlayerLocation = playerTransform;
         this.transform.position = Vector3.MoveTowards(this.transform.position, lastPlayerLocation.position, this.movementSpeed * Time.deltaTime);
     }

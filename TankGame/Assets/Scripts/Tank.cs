@@ -24,8 +24,10 @@ public class Tank : MonoBehaviour
     TankState tankState;
     
     protected float turretRotSpeed = 500.0f;
+    protected float baseRotSpeed = 400.0f;
     protected float movementSpeed = 5.0f;
     protected Vector3 moveDirection;
+    protected Vector3 input;
     
     // Bullet shotting rate
     protected float shootRate = 1f;
@@ -43,7 +45,7 @@ public class Tank : MonoBehaviour
         //this.transform.Translate(this.transform.forward * Time.deltaTime * this.currentSpeed, Space.World);
 
         //this.moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        //controller.Move(this.moveDirection * this.movementSpeed * Time.deltaTime);
+        //controller.Move(this.moveDirection * this.movementSpeed * Time.deltaTime);       
     }
 
     protected void FireBullet()
@@ -60,26 +62,6 @@ public class Tank : MonoBehaviour
         }
     }
 
-    protected void MoveUp()
-    {
-        this.Base.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-    }
-
-    protected void MoveDown()
-    {
-        this.Base.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
-    }
-
-    protected void MoveLeft()
-    {
-        this.Base.transform.rotation = new Quaternion(0f, 270, 0f, 0f);
-    }
-
-    protected void MoveRight()
-    {
-        this.Base.transform.rotation = new Quaternion(0f, 90f, 0f, 0f);
-    }
-
     // Rotation
     protected void TurnRight()
     {
@@ -91,6 +73,16 @@ public class Tank : MonoBehaviour
         this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
     }
 
+    protected void BaseRotation(Vector3 _lookRotation)
+    {
+        // Only update the rotation if the tank has moved
+        if (_lookRotation != Vector3.zero)
+        {
+            this.Base.transform.rotation = Quaternion.RotateTowards(this.Base.rotation, Quaternion.LookRotation(_lookRotation), baseRotSpeed * Time.deltaTime);
+        }
+    }
+
+    // Collision
     private void OnCollisionEnter(Collision collision)
     {
         // Tank got shot
