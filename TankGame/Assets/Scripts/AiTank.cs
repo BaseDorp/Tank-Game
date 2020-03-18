@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class AiTank : Tank
 {
-    [SerializeField]
-    public Transform playerTransform;
+    public static Transform player1Transform;
+    //public Transform player1LastLoc;
 
-    public Transform lastPlayerLocation;
+    Vector3 rayDir;
+    Ray ray;
+    RaycastHit hitInfo;
+    LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
     {
         this.movementSpeed = 3f;
+
+        player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
     }
 
     // Update is called once per frame
@@ -20,34 +25,52 @@ public class AiTank : Tank
     {
         FireBullet();
         Aim();
+        Sight();
 
-        //UpdateMovement();
+        // Time since last bullet fired
+        this.elapsedTime += Time.deltaTime;
+
+        
+
+        
     }
 
     void Aim()
     {
         // Determines if the player is left or right of the AI
         // Code referenced from: https://forum.unity.com/threads/left-right-test-function.31420/
-        Vector3 heading = playerTransform.position - this.Turret.transform.position;
-        Vector3 perp = Vector3.Cross(this.Turret.transform.forward, heading);
-        float dir = Vector3.Dot(perp, this.Turret.transform.up);
+        //Vector3 heading = player1LastLoc.position - this.Turret.transform.position;
+        //Vector3 perp = Vector3.Cross(this.Turret.transform.forward, heading);
+        //float dir = Vector3.Dot(perp, this.Turret.transform.up);
 
-        // Moves the turret in the direction of the player
-        if (dir > 0f)
-        {
-            this.TurnRight();
-        }
-        else if (dir < 0f)
-        {
-            this.TurnLeft();
-        }
+        //// Moves the turret in the direction of the player
+        //if (dir > 0f)
+        //{
+        //    this.TurnRight();
+        //}
+        //else if (dir < 0f)
+        //{
+        //    this.TurnLeft();
+        //}
     }
 
-    void UpdateMovement()
+    void Sight()
     {
-        // TODO GOES THROUGH WALLS
-        // Follows the player
-        this.lastPlayerLocation = playerTransform;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, lastPlayerLocation.position, this.movementSpeed * Time.deltaTime);
+        // Gets the direction of the player to the AI
+        rayDir = player1Transform.transform.position - this.transform.position;
+        // Sets that arrow to point at the player
+        ray = new Ray(this.transform.position, this.rayDir);
+
+        if (Physics.Raycast(ray, out hitInfo, 100))
+        {
+            if (hitInfo.collider.tag == "Player1")
+            {
+                Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
+            }
+            else
+            {
+                Debug.DrawLine(ray.origin, hitInfo.point, Color.white);
+            }
+        }
     }
 }

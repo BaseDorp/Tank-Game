@@ -15,13 +15,13 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected Transform bulletSpawnPoint;
 
-    enum TankState
+    protected enum TankState
     {
         Attack,
         Patrol,
         Dead,
     }
-    TankState tankState;
+    protected TankState tankState;
     
     protected float turretRotSpeed = 500.0f;
     protected float baseRotSpeed = 400.0f;
@@ -40,17 +40,11 @@ public class Tank : MonoBehaviour
     
     void Update()
     {
-        //// Find current speed
-        //this.currentSpeed = Mathf.Lerp(this.currentSpeed, this.targetSpeed, 7.0f * Time.deltaTime);
-        //this.transform.Translate(this.transform.forward * Time.deltaTime * this.currentSpeed, Space.World);
-
-        //this.moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        //controller.Move(this.moveDirection * this.movementSpeed * Time.deltaTime);       
+        
     }
 
     protected void FireBullet()
     {
-        elapsedTime += Time.deltaTime;
         if (this.elapsedTime >= this.shootRate)
         {
             tankState = TankState.Attack;

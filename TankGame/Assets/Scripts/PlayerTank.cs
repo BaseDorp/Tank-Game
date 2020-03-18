@@ -16,6 +16,9 @@ public class PlayerTank : Tank
 
     void Update()
     {
+        // Time since last bullet fired
+        this.elapsedTime += Time.deltaTime;
+
         UpdateMovement();
 
         // Firing

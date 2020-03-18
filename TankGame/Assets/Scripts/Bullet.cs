@@ -19,11 +19,6 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        //EntityManager entityManager =  World.DefaultGameObjectInjectionWorld.EntityManager;
-        //Entity entity = entityManager.CreateEntity(typeof(BulletComponent));
-
-        //entityManager.SetComponentData(entity, new BulletComponent { movementSpeed = 50 });
-
         Destroy(gameObject, LifeTime);
     }
 
