@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        if (collision.collider.tag == "Player" || collision.collider.tag == "bullet")
+        if (collision.collider.tag == "Player1" || collision.collider.tag == "Player2" || collision.collider.tag == "bullet")
         {
             Destroy(this.gameObject);
         }

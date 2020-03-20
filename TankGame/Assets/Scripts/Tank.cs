@@ -51,8 +51,7 @@ public class Tank : MonoBehaviour
             //Reset the time
             this.elapsedTime = 0.0f;
 
-            Instantiate(this.Bullet, this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
-            Debug.Log($"{this.name} fired a bullet");
+            BulletManager.Instance.SpawnFromPool("bullet", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
         }
     }
 

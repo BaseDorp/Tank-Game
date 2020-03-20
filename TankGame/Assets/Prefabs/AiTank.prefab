@@ -266,12 +266,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.41
-  m_Radius: 0.55
+  m_Radius: 0.86
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &8141127997643003226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +289,7 @@ MonoBehaviour:
   Turret: {fileID: 5693697690197603620}
   Base: {fileID: 9113112954709316211}
   bulletSpawnPoint: {fileID: 5155545934257733956}
-  playerTransform: {fileID: 0}
-  lastPlayerLocation: {fileID: 0}
+  player1LastLoc: {x: 0, y: 0, z: 0}
 --- !u!1 &9014620923809401017
 GameObject:
   m_ObjectHideFlags: 0
