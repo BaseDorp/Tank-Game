@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 8141127997643003226}
   m_Layer: 0
   m_Name: AiTank
-  m_TagString: Untagged
+  m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -36,6 +36,7 @@ public class PlayerTank : Tank
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
+        // Gravity
         if (controller.isGrounded)
         {
             gravity = 0;
@@ -45,9 +46,11 @@ public class PlayerTank : Tank
             gravity -= 10f * Time.deltaTime;
         }
 
+        // player movement
         this.input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
         controller.Move(input * this.movementSpeed * Time.deltaTime);
 
+        // player rotation
         if (Input.GetKey(KeyCode.RightArrow))
         {
             TurnRight();

@@ -50,7 +50,7 @@ public class Tank : MonoBehaviour
             tankState = TankState.Attack;
             //Reset the time
             this.elapsedTime = 0.0f;
-
+   
             BulletManager.Instance.SpawnFromPool("bullet", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
         }
     }
@@ -66,6 +66,7 @@ public class Tank : MonoBehaviour
         this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
     }
 
+    // Rotation of the base of the tank based off of an Vector3
     protected void BaseRotation(Vector3 _lookRotation)
     {
         // Only update the rotation if the tank has moved

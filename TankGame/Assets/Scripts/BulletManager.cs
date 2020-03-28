@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Code from Brackeys Object Pooling youtube tutorial
+/// https://www.youtube.com/watch?v=tdSmKaJvCoA
+/// </summary>
+
 public class BulletManager : MonoBehaviour
 {
     [System.Serializable]

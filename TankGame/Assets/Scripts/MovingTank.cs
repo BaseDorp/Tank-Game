@@ -10,7 +10,7 @@ public class MovingTank : AiTank
         // Setting default values
         this.movementSpeed = 3f;
         player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
-        this.player1LastLoc = new Vector3(0, 0, 0);
+        player1LastLoc = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame

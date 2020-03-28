@@ -5,12 +5,11 @@ using UnityEngine;
 public class AiTank : Tank
 {
     public static Transform player1Transform;
-    public Vector3 player1LastLoc;
+    protected static Vector3 player1LastLoc;
 
     Vector3 rayDir;
     Ray ray;
     RaycastHit hitInfo;
-    LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,7 @@ public class AiTank : Tank
         // Setting default values
         this.movementSpeed = 3f;
         player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
-        this.player1LastLoc = new Vector3(0,0,0);
+        player1LastLoc = new Vector3(0,0,0);
     }
 
     // Update is called once per frame
