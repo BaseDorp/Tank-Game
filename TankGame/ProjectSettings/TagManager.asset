@@ -8,6 +8,8 @@ TagManager:
   - bullet
   - Player1
   - tank
+  - start
+  - end
   layers:
   - Default
   - TransparentFX
