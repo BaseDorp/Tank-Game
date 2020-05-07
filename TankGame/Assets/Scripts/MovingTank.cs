@@ -11,9 +11,9 @@ public class MovingTank : AiTank
     void Start()
     {
         // Setting default values
-        this.movementSpeed = 3f;
+        gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
         player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
-        player1LastLoc = new Vector3(0, 0, 0);
+        player1LastLoc = this.transform.position;
 
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
     }
@@ -21,8 +21,17 @@ public class MovingTank : AiTank
     // Update is called once per frame
     void Update()
     {
-        Aim();
-        Sight();
+        if (bullets > 0)
+        {
+            Aim();
+            Sight();
+        }
+        else
+        {
+           StartCoroutine(Reload());
+        }
+
+        Debug.Log(bullets);
 
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
@@ -39,8 +48,11 @@ public class MovingTank : AiTank
         }
     }
 
-    void Move()
+    protected override IEnumerator Reload()
     {
-        //this.transform.position = new Vector3.
+        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        yield return new WaitForSeconds(reloadTime);
+        bullets = 3;
+        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
     }
 }

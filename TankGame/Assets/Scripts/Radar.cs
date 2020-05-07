@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Radar : AiTank
 {
+    [SerializeField]
     float rotSpeed = 50;
 
-    Vector3 rayDir;
     Ray ray;
     RaycastHit hitInfo;
     LayerMask layerMask;

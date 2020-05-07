@@ -7,6 +7,11 @@ public class AiTank : Tank
     public static Transform player1Transform;
     protected static Vector3 player1LastLoc;
 
+    [SerializeField]
+    protected int bullets = 3;
+    [SerializeField]
+    protected float reloadTime = 3f;
+
     Vector3 rayDir;
     Ray ray;
     RaycastHit hitInfo;
@@ -14,17 +19,22 @@ public class AiTank : Tank
     // Start is called before the first frame update
     void Start()
     {
-        // Setting default values
-        this.movementSpeed = 3f;
         player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
-        player1LastLoc = new Vector3(0,0,0);
+        player1LastLoc = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Aim();
-        Sight();
+        if (bullets <= 0)
+        {
+            StartCoroutine(Reload());
+        }
+        else
+        {
+            Aim();
+            Sight();
+        }
 
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
@@ -32,7 +42,10 @@ public class AiTank : Tank
 
     protected void Aim()
     {
-        this.Turret.LookAt(player1LastLoc);
+        if (bullets > 0)
+        {
+            this.Turret.LookAt(new Vector3(player1LastLoc.x, this.transform.position.y, player1LastLoc.z));
+        }
     }
 
     protected void Sight()
@@ -55,6 +68,24 @@ public class AiTank : Tank
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.white);
             }
+        }
+    }
+
+    protected virtual IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        bullets = 3;
+    }
+
+    protected override void FireBullet()
+    {
+        if (this.elapsedTime >= this.shootRate && bullets > 0)
+        {
+            //Reset the time
+            this.elapsedTime = 0.0f;
+
+            BulletManager.Instance.SpawnFromPool("bullet", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
+            bullets--;
         }
     }
 }
