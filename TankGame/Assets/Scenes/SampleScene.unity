@@ -442,7 +442,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1e-45}
+  m_BoundingSphereOverride: {x: -Infinity, y: 0, z: 0, w: 2.8581e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -708,7 +708,8 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1309644939640169509, guid: c8bd6d33df35b3b4382da001652988e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8bd6d33df35b3b4382da001652988e6, type: 3}
 --- !u!1 &995923052
 GameObject:
@@ -1063,6 +1064,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e932bd429920ef84ca4146194a0abe01, type: 3}
+--- !u!4 &1743640293 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1309644939640169944, guid: c8bd6d33df35b3b4382da001652988e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 980840194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810730341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,11 +1324,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radar
       objectReference: {fileID: 0}
-    - target: {fileID: 54923171490491049, guid: 9f0a388d3c3d53a49943aa3ab5e89c18,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0a388d3c3d53a49943aa3ab5e89c18, type: 3}
 --- !u!1 &1174545029153567691 stripped
@@ -1342,15 +1344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304b96cfaecd58343a0e9c7809a04a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
-  controller: {fileID: 0}
-  Turret: {fileID: 0}
-  Base: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
-  movementSpeed: 0
-  bullets: 3
-  reloadTime: 3
-  missileSpeed: 0
+  missileSpeed: 5
+  player1Transform: {fileID: 1743640293}
 --- !u!195 &1174545029153567693
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1380,6 +1375,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000723830, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 1174545029153567691}
+    - target: {fileID: 2000723830, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 1174545029153567692}
     - target: {fileID: 7440759151335398238, guid: c6a387cab5593c54b895e025f9dc5662,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1439,11 +1442,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MissileTank
-      objectReference: {fileID: 0}
-    - target: {fileID: 7440759151335398239, guid: c6a387cab5593c54b895e025f9dc5662,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
@@ -1584,48 +1582,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingTank
       objectReference: {fileID: 0}
-    - target: {fileID: 1124535217995070657, guid: bfb13986886faea45819c0fcd61eaa7d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124535217995070780, guid: bfb13986886faea45819c0fcd61eaa7d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875939466474367365, guid: bfb13986886faea45819c0fcd61eaa7d,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb13986886faea45819c0fcd61eaa7d, type: 3}
---- !u!1 &7875939465439731806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1124535217995070657, guid: bfb13986886faea45819c0fcd61eaa7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7875939465439731805}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &7875939465439731807
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7875939465439731806}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.73
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.53
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

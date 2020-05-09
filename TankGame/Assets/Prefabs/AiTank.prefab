@@ -229,8 +229,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7122394319527089483}
-  - component: {fileID: 7122394319527089335}
   - component: {fileID: 8141127997643003226}
+  - component: {fileID: 214622522171480022}
   m_Layer: 0
   m_Name: AiTank
   m_TagString: tank
@@ -254,24 +254,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &7122394319527089335
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7122394319527089482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 0.41
-  m_Radius: 0.86
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &8141127997643003226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,11 +267,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 5905153815125654237, guid: e47937f2a9506cb48a7d0a0577cbb178, type: 3}
-  controller: {fileID: 7122394319527089335}
   Turret: {fileID: 5693697690197603620}
   Base: {fileID: 9113112954709316211}
   bulletSpawnPoint: {fileID: 5155545934257733956}
-  player1LastLoc: {x: 0, y: 0, z: 0}
+  movementSpeed: 5
+  bullets: 3
+  reloadTime: 3
+--- !u!135 &214622522171480022
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122394319527089482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9014620923809401017
 GameObject:
   m_ObjectHideFlags: 0

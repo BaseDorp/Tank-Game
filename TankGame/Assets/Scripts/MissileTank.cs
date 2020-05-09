@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MissileTank : AiTank
 {
+    [SerializeField]
+    Missile missile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +29,17 @@ public class MissileTank : AiTank
 
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
+    }
+
+    protected override void FireBullet()
+    {
+        if (this.elapsedTime >= this.shootRate && bullets > 0)
+        {
+            //Reset the time
+            this.elapsedTime = 0.0f;
+
+            Instantiate(missile, this.bulletSpawnPoint);
+            bullets--;
+        }
     }
 }

@@ -7,8 +7,6 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected GameObject Bullet;
     [SerializeField]
-    protected CharacterController controller;
-    [SerializeField]
     protected Transform Turret;
     [SerializeField]
     protected Transform Base;

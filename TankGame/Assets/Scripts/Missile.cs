@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Missile : MovingTank
+public class Missile : MonoBehaviour
 {
     [SerializeField]
     float missileSpeed;
+    [SerializeField]
+    Transform player1Transform;
 
     private NavMeshAgent[] navAgents;
 
@@ -15,7 +17,6 @@ public class Missile : MovingTank
     {
         gameObject.GetComponent<NavMeshAgent>().speed = missileSpeed;
         player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
-        player1LastLoc = this.transform.position;
 
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
     }
@@ -23,9 +24,11 @@ public class Missile : MovingTank
     // Update is called once per frame
     void Update()
     {
+
+
         foreach (NavMeshAgent agent in navAgents)
         {
-            agent.destination = player1LastLoc;
+            agent.destination = player1Transform.position;
         }
     }
 

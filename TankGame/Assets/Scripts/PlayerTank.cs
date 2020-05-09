@@ -7,7 +7,10 @@ public class PlayerTank : Tank
     float horizontalValue = 0;
     float verticalValue = 0;
     float gravity = 0;
-    
+
+    [SerializeField]
+    protected CharacterController controller;
+
     void Start()
     {
         // Tank Settings
