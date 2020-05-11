@@ -38,7 +38,7 @@ public class MissileTank : AiTank
             //Reset the time
             this.elapsedTime = 0.0f;
 
-            Instantiate(missile, this.bulletSpawnPoint);
+            BulletManager.Instance.SpawnFromPool("missile", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
             bullets--;
         }
     }

@@ -32,5 +32,12 @@ public class Missile : MonoBehaviour
         }
     }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Removes object if colliding tank or another bullet
+        if (collision.collider.tag == "Player1" || collision.collider.tag == "Player2" || collision.collider.tag == "bullet" || collision.collider.tag == "tank" || collision.collider.tag == "Wall")
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }

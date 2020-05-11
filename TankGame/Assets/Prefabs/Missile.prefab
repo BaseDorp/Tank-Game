@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7524096445698936684}
   - component: {fileID: 6375504191052460247}
   - component: {fileID: 5236038818560694649}
-  - component: {fileID: 4926513197152797325}
   - component: {fileID: 6105200049178225815}
   - component: {fileID: 9179002696542987393}
+  - component: {fileID: 1174545029153567692}
+  - component: {fileID: 1174545029153567693}
   m_Layer: 0
   m_Name: Missile
   m_TagString: bullet
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6802960325793051317}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -0.47524166, y: 1.9, z: -2.57}
   m_LocalScale: {x: 0.24948277, y: 0.31035656, z: 0.24948277}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &6375504191052460247
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,18 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4926513197152797325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6802960325793051317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0d63a5b17f0a742b592d6d3c9cd15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6105200049178225815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,7 +109,43 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 2.44
+  m_Radius: 1.6
+  m_Height: 2.56
   m_Direction: 1
   m_Center: {x: 0.00000005960464, y: 1.2705494e-21, z: -0.00000008940698}
+--- !u!114 &1174545029153567692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802960325793051317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304b96cfaecd58343a0e9c7809a04a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileSpeed: 5
+  player1Transform: {fileID: 0}
+--- !u!195 &1174545029153567693
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802960325793051317}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.6
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 99
+  m_AngularSpeed: 10
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 0.56
+  m_BaseOffset: -0.02
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 0
