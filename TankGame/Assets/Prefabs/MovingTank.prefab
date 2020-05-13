@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1124535217995070656
 Transform:
   m_ObjectHideFlags: 0
@@ -51,7 +51,12 @@ MonoBehaviour:
   Turret: {fileID: 2470478205113310383}
   Base: {fileID: 1383927547722120184}
   bulletSpawnPoint: {fileID: 3080700194103978191}
+  baseRenderer: {fileID: 3080700194228723920}
+  turretRenderer: {fileID: 3080700194976092965}
+  deadTank: {fileID: 2100000, guid: bdac1e82d7f4df448af782f41918f02b, type: 2}
+  turretRotSpeed: 150
   movementSpeed: 3
+  tankState: 0
   bullets: 3
   reloadTime: 3
 --- !u!195 &7875939465439731807
@@ -68,7 +73,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 7
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

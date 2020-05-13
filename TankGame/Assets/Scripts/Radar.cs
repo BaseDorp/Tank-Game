@@ -9,7 +9,8 @@ public class Radar : AiTank
 
     Ray ray;
     RaycastHit hitInfo;
-    LayerMask layerMask;
+    RaycastHit[] hits;
+    LayerMask layerMask = ~1 << 8;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +25,17 @@ public class Radar : AiTank
         transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime, Space.Self);
 
         ray = new Ray(this.transform.position, this.transform.forward);
-        
 
-        if (Physics.Raycast(ray, out hitInfo, 100f))
+        // gets an array off everything the raycast hit
+        hits = Physics.RaycastAll(ray, 100f);
+        // checks each collider that the raycast hit
+        foreach (RaycastHit hit in hits)
         {
-            Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
-            
-            if (hitInfo.collider.tag == "Player1")
+            Debug.DrawLine(ray.origin, hit.point, Color.blue);
+
+            if (hit.collider.tag == "Player1")
             {
-                player1LastLoc = hitInfo.transform.position;
+                player1LastLoc = hit.transform.position;
             }
         }
     }

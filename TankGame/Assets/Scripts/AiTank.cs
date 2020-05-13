@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AiTank : Tank
 {
-    public static Transform player1Transform;
+    protected static PlayerTank Player1;
     protected static Vector3 player1LastLoc;
 
     [SerializeField]
@@ -19,21 +19,21 @@ public class AiTank : Tank
     // Start is called before the first frame update
     void Start()
     {
-        player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
+        Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
         player1LastLoc = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bullets <= 0)
-        {
-            StartCoroutine(Reload());
-        }
-        else
+        if (bullets > 0 && Player1.tankState == TankState.Alive)
         {
             Aim();
             Sight();
+        }
+        else
+        {
+            StartCoroutine(Reload());
         }
 
         // Time since last bullet fired
@@ -51,7 +51,7 @@ public class AiTank : Tank
     protected void Sight()
     {
         // Gets the direction of the player to the AI
-        rayDir = player1Transform.transform.position - this.transform.position;
+        rayDir = Player1.transform.position - this.transform.position;
         // Sets that array to point at the player
         ray = new Ray(this.transform.position, this.rayDir);
 

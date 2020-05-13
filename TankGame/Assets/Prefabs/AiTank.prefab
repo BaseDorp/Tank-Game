@@ -270,6 +270,9 @@ MonoBehaviour:
   Turret: {fileID: 5693697690197603620}
   Base: {fileID: 9113112954709316211}
   bulletSpawnPoint: {fileID: 5155545934257733956}
+  baseRenderer: {fileID: 5155545935217281371}
+  turretRenderer: {fileID: 5155545933519911598}
+  deadTank: {fileID: 2100000, guid: bdac1e82d7f4df448af782f41918f02b, type: 2}
   movementSpeed: 5
   bullets: 3
   reloadTime: 3

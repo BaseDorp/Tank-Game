@@ -11,12 +11,6 @@ public class PlayerTank : Tank
     [SerializeField]
     protected CharacterController controller;
 
-    void Start()
-    {
-        // Tank Settings
-        turretRotSpeed = 100.0f;
-    }
-
     void Update()
     {
         // Time since last bullet fired

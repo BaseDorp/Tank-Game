@@ -24,7 +24,7 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Rotate();
 
         foreach (NavMeshAgent agent in navAgents)
         {
@@ -32,12 +32,24 @@ public class Missile : MonoBehaviour
         }
     }
 
+    void Rotate()
+    {
+        // Only update the rotation if the tank has moved
+        if (player1Transform.transform.position != Vector3.zero)
+        {
+            this.transform.LookAt(player1Transform);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.collider.tag + "not coliding");
         // Removes object if colliding tank or another bullet
         if (collision.collider.tag == "Player1" || collision.collider.tag == "Player2" || collision.collider.tag == "bullet" || collision.collider.tag == "tank" || collision.collider.tag == "Wall")
         {
+            Debug.Log(collision.collider.tag);
             this.gameObject.SetActive(false);
         }
     }
+
 }

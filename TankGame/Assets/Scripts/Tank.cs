@@ -12,11 +12,19 @@ public class Tank : MonoBehaviour
     protected Transform Base;
     [SerializeField]
     protected Transform bulletSpawnPoint;
-    
-    protected float turretRotSpeed = 500.0f;
+    [SerializeField]
+    protected Renderer baseRenderer;
+    [SerializeField]
+    protected Renderer turretRenderer;
+
+    [SerializeField]
+    protected Material deadTank;
+
+    [SerializeField]
+    protected float turretRotSpeed = 150.0f;
     protected float baseRotSpeed = 400.0f;
     [SerializeField]
-    protected float movementSpeed = 5.0f;
+    protected float movementSpeed = 3.0f;
     protected Vector3 moveDirection;
     protected Vector3 input;
     
@@ -24,10 +32,8 @@ public class Tank : MonoBehaviour
     protected float shootRate = 1f;
     protected float elapsedTime;
 
-    void Start()
-    {
-
-    }
+    public enum TankState { Alive, Dead };
+    public TankState tankState = TankState.Alive;
     
     void Update()
     {
@@ -72,7 +78,10 @@ public class Tank : MonoBehaviour
         // Tank got shot
         if (collision.collider.tag == "bullet")
         {
-            //this.enabled = false;
+            this.enabled = false;
+            this.tankState = TankState.Dead;
+            this.baseRenderer.material = deadTank;
+            this.turretRenderer.material = deadTank;
         }
     }
 }

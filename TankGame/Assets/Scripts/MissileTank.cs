@@ -10,21 +10,21 @@ public class MissileTank : AiTank
     // Start is called before the first frame update
     void Start()
     {
-        player1Transform = GameObject.FindGameObjectWithTag("Player1").transform;
+        Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
         player1LastLoc = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bullets <= 0)
-        {
-            StartCoroutine(Reload());
-        }
-        else
+        if (bullets > 0 && Player1.tankState == TankState.Alive)
         {
             Aim();
             Sight();
+        }
+        else
+        {
+            StartCoroutine(Reload());
         }
 
         // Time since last bullet fired

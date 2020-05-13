@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1309644939640169947}
   - component: {fileID: 1309644939640169509}
   - component: {fileID: 1309644939640169508}
+  - component: {fileID: 999218998227847136}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -79,10 +80,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 5905153815125654237, guid: e47937f2a9506cb48a7d0a0577cbb178, type: 3}
-  controller: {fileID: 1309644939640169508}
   Turret: {fileID: 4611416803405415863}
   Base: {fileID: 1045784221529563872}
   bulletSpawnPoint: {fileID: 3996721957086933463}
+  baseRenderer: {fileID: 3996721958046284232}
+  turretRenderer: {fileID: 3996721956214147645}
+  deadTank: {fileID: 2100000, guid: bdac1e82d7f4df448af782f41918f02b, type: 2}
+  turretRotSpeed: 300
+  movementSpeed: 3
+  controller: {fileID: 1309644939640169508}
 --- !u!135 &1309644939640169509
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -114,6 +120,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!65 &999218998227847136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309644939640169945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.11, y: 1.54, z: 1.78}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3996721956214147640
 GameObject:
   m_ObjectHideFlags: 0

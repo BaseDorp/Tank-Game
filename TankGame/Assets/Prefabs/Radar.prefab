@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &54923171490491045
 Transform:
   m_ObjectHideFlags: 0
@@ -236,6 +236,9 @@ MonoBehaviour:
   Turret: {fileID: 0}
   Base: {fileID: 0}
   bulletSpawnPoint: {fileID: 0}
+  baseRenderer: {fileID: 0}
+  turretRenderer: {fileID: 0}
+  deadTank: {fileID: 0}
   movementSpeed: 5
   bullets: 3
   reloadTime: 3
