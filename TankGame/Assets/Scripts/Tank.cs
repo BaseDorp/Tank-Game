@@ -16,6 +16,8 @@ public class Tank : MonoBehaviour
     protected Renderer baseRenderer;
     [SerializeField]
     protected Renderer turretRenderer;
+    [SerializeField]
+    protected ParticleSystem fireVFX;
 
     [SerializeField]
     protected Material deadTank;
@@ -32,7 +34,7 @@ public class Tank : MonoBehaviour
     protected float shootRate = 1f;
     protected float elapsedTime;
 
-    public enum TankState { Alive, Dead };
+    public enum TankState { Alive, Dead }; // TODO make this a bool?
     public TankState tankState = TankState.Alive;
     
     void Update()
@@ -48,6 +50,8 @@ public class Tank : MonoBehaviour
             this.elapsedTime = 0.0f;
    
             BulletManager.Instance.SpawnFromPool("bullet", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
+            //Instantiate(fireVFX);
+            //fireVFX.Play();
         }
     }
 

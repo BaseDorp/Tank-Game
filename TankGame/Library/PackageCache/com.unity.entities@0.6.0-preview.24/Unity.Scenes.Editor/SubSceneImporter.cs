@@ -6,13 +6,13 @@ using Unity.Entities.Serialization;
 using Unity.Build;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using AssetImportContext = UnityEditor.Experimental.AssetImporters.AssetImportContext;
+using AssetImportContext = UnityEditor.AssetImporters.AssetImportContext;
 
 namespace Unity.Scenes.Editor
 {
-    [UnityEditor.Experimental.AssetImporters.ScriptedImporter(71, "extDontMatter")]
+    [UnityEditor.AssetImporters.ScriptedImporterAttribute(71, "extDontMatter")]
     [InitializeOnLoad]
-    class SubSceneImporter : UnityEditor.Experimental.AssetImporters.ScriptedImporter
+    class SubSceneImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
         static SubSceneImporter()
         {

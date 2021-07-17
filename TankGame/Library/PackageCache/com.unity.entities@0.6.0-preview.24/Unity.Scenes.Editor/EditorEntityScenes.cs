@@ -19,7 +19,7 @@ using UnityEditor.VersionControl;
 using static Unity.Entities.GameObjectConversionUtility;
 using Hash128 = Unity.Entities.Hash128;
 using UnityObject = UnityEngine.Object;
-using AssetImportContext = UnityEditor.Experimental.AssetImporters.AssetImportContext;
+using AssetImportContext = UnityEditor.AssetImporters.AssetImportContext;
 
 namespace Unity.Scenes.Editor
 {

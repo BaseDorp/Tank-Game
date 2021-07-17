@@ -7,7 +7,7 @@ using Unity.Entities;
 using Unity.Entities.Serialization;
 using UnityEditor;
 using UnityEditor.Experimental;
-using UnityEditor.Experimental.AssetImporters;
+
 
 namespace Unity.Scenes.Editor
 {
@@ -23,7 +23,7 @@ namespace Unity.Scenes.Editor
                 return;
             s_Initialized = true;
 
-            AssetDatabaseExperimental.UnregisterCustomDependencyPrefixFilter("UnityEngineType/");
+            AssetDatabase.UnregisterCustomDependencyPrefixFilter("UnityEngineType/");
 
             var behaviours = TypeCache.GetTypesDerivedFrom<UnityEngine.MonoBehaviour>();
             var scripts = TypeCache.GetTypesDerivedFrom<UnityEngine.ScriptableObject>();
@@ -34,7 +34,7 @@ namespace Unity.Scenes.Editor
                 if (type.IsGenericType)
                     continue;
                 var hash = TypeHash.CalculateStableTypeHash(type);
-                AssetDatabaseExperimental.RegisterCustomDependency(TypeString(type),
+                AssetDatabase.RegisterCustomDependency(TypeString(type),
                     new UnityEngine.Hash128(hash, hash));
             }
 
@@ -44,14 +44,14 @@ namespace Unity.Scenes.Editor
                 if (type.IsGenericType)
                     continue;
                 var hash = TypeHash.CalculateStableTypeHash(type);
-                AssetDatabaseExperimental.RegisterCustomDependency(TypeString(type),
+                AssetDatabase.RegisterCustomDependency(TypeString(type),
                     new UnityEngine.Hash128(hash, hash));
             }
         }
     }
 
-    [ScriptedImporter(10, "liveLinkBundles")]
-    public class LiveLinkBuildImporter : ScriptedImporter
+    [UnityEditor.AssetImporters.ScriptedImporter(10, "liveLinkBundles")]
+    public class LiveLinkBuildImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
         const int k_CurrentFileFormatVersion = 1;
         const string k_DependenciesExtension = "dependencies";
@@ -113,7 +113,7 @@ namespace Unity.Scenes.Editor
             return "";
         }
 
-        public override void OnImportAsset(AssetImportContext ctx)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             if (ctx.assetPath.ToLower().EndsWith(k_SceneExtension))
                 ImportSceneBundle(ctx);
@@ -131,7 +131,7 @@ namespace Unity.Scenes.Editor
             builder.Dispose();
         }
 
-        void AddImportDependencies(AssetImportContext ctx, IEnumerable<Hash128> dependencies, IEnumerable<Type> types)
+        void AddImportDependencies(UnityEditor.AssetImporters.AssetImportContext ctx, IEnumerable<Hash128> dependencies, IEnumerable<Type> types)
         {
             ctx.DependsOnSourceAsset(ctx.assetPath);
             var extension = Path.GetExtension(ctx.assetPath).ToLower();
@@ -158,7 +158,7 @@ namespace Unity.Scenes.Editor
                 ctx.DependsOnCustomDependency(AssetBundleTypeCache.TypeString(type));
         }
 
-        private void ImportAssetBundle(AssetImportContext ctx)
+        private void ImportAssetBundle(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             var assetPath = ctx.assetPath;
             LiveLinkBuildPipeline.RemapBuildInAssetPath(ref assetPath);
@@ -180,7 +180,7 @@ namespace Unity.Scenes.Editor
             AddImportDependencies(ctx, dependencies, types);
         }
 
-        private void ImportSceneBundle(AssetImportContext ctx)
+        private void ImportSceneBundle(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             var guid = new GUID(AssetDatabase.AssetPathToGUID(ctx.assetPath));
             var bundlePath = ctx.GetResultPath(k_BundleExtension);

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Gamemode : MonoBehaviour
 {
+    [SerializeField]
+    int NumberOfPlayers;
+    [SerializeField]
+    PlayerTank[] Players;
+
     void Awake()
     {
         // Limits fps count
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
+
     }
 }

@@ -1535,7 +1535,7 @@ namespace Unity.Collections
             {
                 if (jobReflectionData == IntPtr.Zero)
                 {
-                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapUniqueHashJobStruct<TJob>), typeof(TJob), JobType.ParallelFor, (ExecuteJobFunction)Execute);
+                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapUniqueHashJobStruct<TJob>), typeof(TJob), (ExecuteJobFunction)Execute);
                 }
 
                 return jobReflectionData;
@@ -1625,7 +1625,7 @@ namespace Unity.Collections
                   UnsafeUtility.AddressOf(ref fullData)
                 , UnsafeMultiHashMapUniqueHashJobStruct<TJob>.Initialize()
                 , dependsOn
-                , ScheduleMode.Batched
+                , ScheduleMode.Parallel
                 );
 
             return JobsUtility.ScheduleParallelFor(ref scheduleParams, hashMap.m_Buffer->bucketCapacityMask + 1, minIndicesPerJobCount);
@@ -1664,7 +1664,7 @@ namespace Unity.Collections
             {
                 if (jobReflectionData == IntPtr.Zero)
                 {
-                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapVisitKeyValueJobStruct<TJob, TKey, TValue>), typeof(TJob), JobType.ParallelFor, (ExecuteJobFunction)Execute);
+                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapVisitKeyValueJobStruct<TJob, TKey, TValue>), typeof(TJob), (ExecuteJobFunction)Execute);
                 }
 
                 return jobReflectionData;
@@ -1734,7 +1734,7 @@ namespace Unity.Collections
                   UnsafeUtility.AddressOf(ref fullData)
                 , UnsafeMultiHashMapVisitKeyValueJobStruct<TJob, TKey, TValue>.Initialize()
                 , dependsOn
-                , ScheduleMode.Batched
+                , ScheduleMode.Parallel
                 );
 
             return JobsUtility.ScheduleParallelFor(ref scheduleParams, hashMap.m_Buffer->bucketCapacityMask + 1, minIndicesPerJobCount);
@@ -1774,7 +1774,7 @@ namespace Unity.Collections
             {
                 if (jobReflectionData == IntPtr.Zero)
                 {
-                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapVisitKeyMutableValueJobStruct<TJob, TKey, TValue>), typeof(TJob), JobType.ParallelFor, (ExecuteJobFunction)Execute);
+                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(UnsafeMultiHashMapVisitKeyMutableValueJobStruct<TJob, TKey, TValue>), typeof(TJob), (ExecuteJobFunction)Execute);
                 }
 
                 return jobReflectionData;
@@ -1842,7 +1842,7 @@ namespace Unity.Collections
                   UnsafeUtility.AddressOf(ref fullData)
                 , UnsafeMultiHashMapVisitKeyMutableValueJobStruct<TJob, TKey, TValue>.Initialize()
                 , dependsOn
-                , ScheduleMode.Batched
+                , ScheduleMode.Parallel
                 );
 
             return JobsUtility.ScheduleParallelFor(ref scheduleParams, hashMap.m_Buffer->bucketCapacityMask + 1, minIndicesPerJobCount);

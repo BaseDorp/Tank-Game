@@ -20,7 +20,7 @@ public class AiTank : Tank
     void Start()
     {
         Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
-        player1LastLoc = this.transform.position;
+        player1LastLoc = this.transform.position; // TODO change this to last player seen (not just 1 player)
     }
 
     // Update is called once per frame
@@ -29,7 +29,6 @@ public class AiTank : Tank
         if (bullets > 0 && Player1.tankState == TankState.Alive)
         {
             Aim();
-            Sight();
         }
         else
         {
@@ -42,14 +41,9 @@ public class AiTank : Tank
 
     protected void Aim()
     {
-        if (bullets > 0)
-        {
-            this.Turret.LookAt(new Vector3(player1LastLoc.x, this.transform.position.y, player1LastLoc.z));
-        }
-    }
+        // TODO look at current player position - previous player position 
+        this.Turret.LookAt(new Vector3(player1LastLoc.x, this.transform.position.y, player1LastLoc.z));
 
-    protected void Sight()
-    {
         // Gets the direction of the player to the AI
         rayDir = Player1.transform.position - this.transform.position;
         // Sets that array to point at the player
@@ -58,7 +52,7 @@ public class AiTank : Tank
         // TODO change distance so that it covers entire map
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
-            if (hitInfo.collider.tag == "Player1")
+            if (hitInfo.collider.tag == "Player1") // TODO change this so it checks if has PlayerTank component, not by tags
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
                 player1LastLoc = hitInfo.transform.position;

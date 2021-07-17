@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 #if UNITY_EDITOR
-using AssetImportContext = UnityEditor.Experimental.AssetImporters.AssetImportContext;
+using AssetImportContext = UnityEditor.AssetImporters.AssetImportContext;
 #endif
 using ConversionFlags = Unity.Entities.GameObjectConversionUtility.ConversionFlags;
 using UnityObject = UnityEngine.Object;

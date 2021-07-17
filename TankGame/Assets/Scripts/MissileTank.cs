@@ -20,7 +20,6 @@ public class MissileTank : AiTank
         if (bullets > 0 && Player1.tankState == TankState.Alive)
         {
             Aim();
-            Sight();
         }
         else
         {

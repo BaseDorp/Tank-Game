@@ -1,11 +1,11 @@
-using UnityEditor.Experimental.AssetImporters;
+
 
 namespace Unity.Build
 {
-    [ScriptedImporter(1, new[] { BuildPipeline.AssetExtension })]
-    sealed class BuildPipelineScriptedImporter : ScriptedImporter
+    [UnityEditor.AssetImporters.ScriptedImporter(1, new[] { BuildPipeline.AssetExtension })]
+    sealed class BuildPipelineScriptedImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
-        public override void OnImportAsset(AssetImportContext context)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext context)
         {
             var asset = BuildPipeline.CreateInstance();
             if (BuildPipeline.DeserializeFromPath(asset, context.assetPath))

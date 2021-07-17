@@ -22,8 +22,7 @@ namespace Unity.Jobs
             {
                 if (JobReflectionData == IntPtr.Zero)
                 {
-                    JobReflectionData = JobsUtility.CreateJobReflectionData(typeof(T), typeof(T),
-                        JobType.ParallelFor, (ExecuteJobFunction)Execute);
+                    JobReflectionData = JobsUtility.CreateJobReflectionData(typeof(T), typeof(T), (ExecuteJobFunction)Execute);
                 }
 
                 return JobReflectionData;
@@ -55,7 +54,7 @@ namespace Unity.Jobs
                 UnsafeUtility.AddressOf(ref jobData),
                 ParallelForBatchJobStruct<T>.Initialize(),
                 dependsOn,
-                ScheduleMode.Batched);
+                ScheduleMode.Parallel);
 
             return JobsUtility.ScheduleParallelFor(ref scheduleParams, arrayLength, minIndicesPerJobCount);
         }

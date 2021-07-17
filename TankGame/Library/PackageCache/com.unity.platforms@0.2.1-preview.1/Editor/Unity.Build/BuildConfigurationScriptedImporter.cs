@@ -1,17 +1,17 @@
 using System.IO;
-using UnityEditor.Experimental.AssetImporters;
+
 using UnityEngine;
 
 namespace Unity.Build
 {
-    [ScriptedImporter(1, new[] { BuildConfiguration.AssetExtension
+    [UnityEditor.AssetImporters.ScriptedImporter(1, new[] { BuildConfiguration.AssetExtension
 #pragma warning disable 618
         , BuildSettings.AssetExtension
 #pragma warning restore 618
     })]
-    sealed class BuildConfigurationScriptedImporter : ScriptedImporter
+    sealed class BuildConfigurationScriptedImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
-        public override void OnImportAsset(AssetImportContext context)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext context)
         {
             var asset = BuildConfiguration.CreateInstance();
             if (BuildConfiguration.DeserializeFromPath(asset, context.assetPath))

@@ -895,113 +895,113 @@ namespace Unity.Entities
 #if !UNITY_DOTSPLAYER        
             var typeT = typeof(T);
             if (typeof(IBaseJobForEach_C).IsAssignableFrom(typeT))
-                return ScheduleInternal_C(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_C(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_B).IsAssignableFrom(typeT))
-                return ScheduleInternal_B(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_B(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBCC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBC(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBB(ref jobData, system, null, 1, dependsOn, ScheduleMode.Parallel);
 #endif
             throw new System.ArgumentException("Not supported");
         }
@@ -1011,113 +1011,113 @@ namespace Unity.Entities
 #if !UNITY_DOTSPLAYER        
             var typeT = typeof(T);
             if (typeof(IBaseJobForEach_C).IsAssignableFrom(typeT))
-                return ScheduleInternal_C(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_C(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_B).IsAssignableFrom(typeT))
-                return ScheduleInternal_B(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_B(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBCC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBC(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBB(ref jobData, system, null, -1, dependsOn, ScheduleMode.Parallel);
 #endif
             throw new System.ArgumentException("Not supported");
         }
@@ -1244,113 +1244,113 @@ namespace Unity.Entities
 #if !UNITY_DOTSPLAYER        
             var typeT = typeof(T);
             if (typeof(IBaseJobForEach_C).IsAssignableFrom(typeT))
-                return ScheduleInternal_C(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_C(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_B).IsAssignableFrom(typeT))
-                return ScheduleInternal_B(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_B(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBCC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBC(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBB(ref jobData, null, query, 1, dependsOn, ScheduleMode.Parallel);
 #endif // !UNITY_DOTSPLAYER
             throw new System.ArgumentException("Not supported");
         }
@@ -1360,113 +1360,113 @@ namespace Unity.Entities
 #if !UNITY_DOTSPLAYER        
             var typeT = typeof(T);
             if (typeof(IBaseJobForEach_C).IsAssignableFrom(typeT))
-                return ScheduleInternal_C(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_C(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_B).IsAssignableFrom(typeT))
-                return ScheduleInternal_B(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_B(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_CCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_CCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_CCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_ECCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_ECCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_ECCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBCCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBCCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBCCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBCCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBCCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBCCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBCC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBCC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBC).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBC(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_BBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_BBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_BBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
             if (typeof(IBaseJobForEach_EBBBBBB).IsAssignableFrom(typeT))
-                return ScheduleInternal_EBBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Batched);
+                return ScheduleInternal_EBBBBBB(ref jobData, null, query, -1, dependsOn, ScheduleMode.Parallel);
 #endif // !UNITY_DOTSPLAYER
             throw new System.ArgumentException("Not supported");
         }
@@ -3274,7 +3274,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_C<T, T0>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_C<T, T0>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_C<T, T0>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3383,7 +3383,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EC<T, T0>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EC<T, T0>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EC<T, T0>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3493,7 +3493,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_B<T, T0>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_B<T, T0>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_B<T, T0>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3612,7 +3612,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EB<T, T0>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EB<T, T0>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EB<T, T0>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3733,7 +3733,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CC<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CC<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CC<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3846,7 +3846,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECC<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECC<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECC<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -3960,7 +3960,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BC<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BC<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BC<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4083,7 +4083,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBC<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBC<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBC<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4207,7 +4207,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BB<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BB<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BB<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4332,7 +4332,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBB<T, T0, T1>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBB<T, T0, T1>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBB<T, T0, T1>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4459,7 +4459,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4576,7 +4576,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4694,7 +4694,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4821,7 +4821,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -4949,7 +4949,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5078,7 +5078,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBC<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBC<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBC<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5208,7 +5208,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBB<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBB<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBB<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5339,7 +5339,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBB<T, T0, T1, T2>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBB<T, T0, T1, T2>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBB<T, T0, T1, T2>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5472,7 +5472,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5593,7 +5593,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5715,7 +5715,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5846,7 +5846,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -5978,7 +5978,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6111,7 +6111,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6245,7 +6245,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6380,7 +6380,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBC<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBC<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBC<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6516,7 +6516,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBB<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBB<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBB<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6653,7 +6653,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBB<T, T0, T1, T2, T3>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBB<T, T0, T1, T2, T3>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBB<T, T0, T1, T2, T3>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6792,7 +6792,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -6917,7 +6917,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7043,7 +7043,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7178,7 +7178,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7314,7 +7314,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7451,7 +7451,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7589,7 +7589,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7728,7 +7728,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -7868,7 +7868,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8009,7 +8009,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBC<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBC<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBC<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8151,7 +8151,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBB<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBB<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBB<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8294,7 +8294,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBB<T, T0, T1, T2, T3, T4>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBB<T, T0, T1, T2, T3, T4>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBB<T, T0, T1, T2, T3, T4>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8439,7 +8439,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_CCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8568,7 +8568,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_ECCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8698,7 +8698,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8837,7 +8837,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBCCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -8977,7 +8977,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9118,7 +9118,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBCCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9260,7 +9260,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9403,7 +9403,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBCCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9547,7 +9547,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9692,7 +9692,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBCC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9838,7 +9838,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -9985,7 +9985,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBC<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -10133,7 +10133,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_BBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 
@@ -10282,7 +10282,7 @@ namespace Unity.Entities
 #if UNITY_DOTSPLAYER
                 return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), JobType.Single, (ExecuteJobFunction) Execute);
 #else
-                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), jobType, (ExecuteJobFunction) Execute);
+                return JobsUtility.CreateJobReflectionData(typeof(JobStruct_Process_EBBBBBB<T, T0, T1, T2, T3, T4, T5>), typeof(T), (ExecuteJobFunction) Execute);
 #endif                
             }
 

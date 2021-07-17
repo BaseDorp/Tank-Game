@@ -31,8 +31,7 @@ namespace Unity.Jobs
                 if (jobReflectionData == IntPtr.Zero)
                     // @TODO: Use parallel for job... (Need to expose combine jobs)
 
-                    jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(JobDataWithFiltering), typeof(T),
-                        JobType.Single, (ExecuteJobFunction)Execute);
+                    { jobReflectionData = JobsUtility.CreateJobReflectionData(typeof(JobDataWithFiltering), typeof(T), (ExecuteJobFunction)Execute); }
 
                 return jobReflectionData;
             }
@@ -106,7 +105,7 @@ namespace Unity.Jobs
                 appendCount = arrayLength
             };
 
-            var scheduleParams = new JobsUtility.JobScheduleParameters(UnsafeUtility.AddressOf(ref fullData), JobStructProduce<T>.Initialize(), dependsOn, ScheduleMode.Batched);
+            var scheduleParams = new JobsUtility.JobScheduleParameters(UnsafeUtility.AddressOf(ref fullData), JobStructProduce<T>.Initialize(), dependsOn, ScheduleMode.Parallel);
             return JobsUtility.Schedule(ref scheduleParams);
         }
 
@@ -119,7 +118,7 @@ namespace Unity.Jobs
                 appendCount = -1
             };
 
-            var scheduleParams = new JobsUtility.JobScheduleParameters(UnsafeUtility.AddressOf(ref fullData), JobStructProduce<T>.Initialize(), dependsOn, ScheduleMode.Batched);
+            var scheduleParams = new JobsUtility.JobScheduleParameters(UnsafeUtility.AddressOf(ref fullData), JobStructProduce<T>.Initialize(), dependsOn, ScheduleMode.Parallel);
             return JobsUtility.Schedule(ref scheduleParams);
         }
 

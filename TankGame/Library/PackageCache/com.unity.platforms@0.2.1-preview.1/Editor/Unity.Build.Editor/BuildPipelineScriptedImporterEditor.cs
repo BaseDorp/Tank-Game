@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Properties;
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using UnityEditor.Searcher;
 using UnityEditorInternal;
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 namespace Unity.Build.Editor
 {
     [CustomEditor(typeof(BuildPipelineScriptedImporter))]
-    sealed class BuildPipelineScriptedImporterEditor : ScriptedImporterEditor
+    sealed class BuildPipelineScriptedImporterEditor : UnityEditor.AssetImporters.ScriptedImporterEditor
     {
         ReorderableList m_BuildStepsList;
         bool m_IsModified;
