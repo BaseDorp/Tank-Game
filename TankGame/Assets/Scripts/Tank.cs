@@ -22,6 +22,7 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected Material deadTank;
 
+    // Tank Movement
     [SerializeField]
     protected float turretRotSpeed = 150.0f;
     protected float baseRotSpeed = 400.0f;
@@ -34,9 +35,16 @@ public class Tank : MonoBehaviour
     protected float shootRate = 1f;
     protected float elapsedTime;
 
-    public enum TankState { Alive, Dead }; // TODO make this a bool?
-    public TankState tankState = TankState.Alive;
-    
+    // Tank Attributes
+    public bool bTankAlive = true;
+    public enum TankColor { Blue, Green, Red, Yellow };
+    public TankColor tankColor;
+
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         
@@ -79,13 +87,18 @@ public class Tank : MonoBehaviour
     // Collision
     private void OnCollisionEnter(Collision collision)
     {
-        // Tank got shot
+        // Tank shot
         if (collision.collider.tag == "bullet")
         {
             this.enabled = false;
-            this.tankState = TankState.Dead;
+            this.bTankAlive = false;
             this.baseRenderer.material = deadTank;
             this.turretRenderer.material = deadTank;
         }
+    }
+
+    public void SetTankColor(PlayerTank player, TankColor color)
+    {
+        player.tankColor = color;
     }
 }

@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class Gamemode : MonoBehaviour
 {
+    // Singleton Instance
+    public static Gamemode Instance { get; private set; }
+
     [SerializeField]
     int NumberOfPlayers;
     [SerializeField]
-    PlayerTank[] Players;
+    public List<PlayerTank> Players;
 
     void Awake()
     {
-        // Limits fps count
-        //Application.targetFrameRate = 60;
+        // Creates instance
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
+        // Limits fps count
+        Application.targetFrameRate = 60;
+
+    }
+
+    public void NewPlayer()
+    {
+        Players.Add(new PlayerTank());
+    }
+
+    public void RemovePlayer(PlayerTank player)
+    {
+        Players.Remove(player);
     }
 }

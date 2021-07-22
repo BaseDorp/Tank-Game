@@ -5,7 +5,8 @@ using UnityEngine;
 public class AiTank : Tank
 {
     protected static PlayerTank Player1;
-    protected static Vector3 player1LastLoc;
+    public static List<Vector3> LastPlayerLocations;
+    List<Ray> Raycasts;
 
     [SerializeField]
     protected int bullets = 3;
@@ -19,14 +20,43 @@ public class AiTank : Tank
     // Start is called before the first frame update
     void Start()
     {
-        Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
-        player1LastLoc = this.transform.position; // TODO change this to last player seen (not just 1 player)
+        // Makes the Raycast list the same size of number of players
+        Raycasts = new List<Ray>(Gamemode.Instance.Players.Count);
+        foreach (PlayerTank players in Gamemode.Instance.Players)
+        {
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bullets > 0 && Player1.tankState == TankState.Alive)
+        for (int i = 0; i < Raycasts.Count; i++) // TODO move to aim?
+        {
+            Vector3 rayDir = Gamemode.Instance.Players[i].transform.position - this.transform.position;
+            Raycasts[i] = new Ray(this.transform.position, rayDir);
+            RaycastHit hitInfo;
+
+            // TODO change distance so that it covers entire map
+            if (Physics.Raycast(Raycasts[i], out hitInfo, 100))
+            {
+                // Checks if the AI has line of sight to player
+                if (hitInfo.collider.GetComponent<PlayerTank>())
+                {
+                    Debug.DrawLine(Raycasts[i].origin, hitInfo.point, Color.blue);
+                    // If hit, update the last known location of that player
+                    LastPlayerLocations[i] = this.transform.position;
+                }
+                else
+                {
+                    Debug.DrawLine(Raycasts[i].origin, hitInfo.point, Color.white);
+                }
+            }
+        }
+        // make AI go to closest player location // firing distance for ai tank?
+
+
+        if (bullets > 0 && bTankAlive)
         {
             Aim();
         }
@@ -41,9 +71,6 @@ public class AiTank : Tank
 
     protected void Aim()
     {
-        // TODO look at current player position - previous player position 
-        this.Turret.LookAt(new Vector3(player1LastLoc.x, this.transform.position.y, player1LastLoc.z));
-
         // Gets the direction of the player to the AI
         rayDir = Player1.transform.position - this.transform.position;
         // Sets that array to point at the player
@@ -52,10 +79,12 @@ public class AiTank : Tank
         // TODO change distance so that it covers entire map
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
-            if (hitInfo.collider.tag == "Player1") // TODO change this so it checks if has PlayerTank component, not by tags
+            if (hitInfo.collider.GetComponent<PlayerTank>())
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
-                player1LastLoc = hitInfo.transform.position;
+                LastPlayerLocations[0] = hitInfo.transform.position;
+                // TODO look at current player position - previous player position 
+                this.Turret.LookAt(new Vector3(LastPlayerLocations[0].x, this.transform.position.y, LastPlayerLocations[0].z));
                 FireBullet();
             }
             else

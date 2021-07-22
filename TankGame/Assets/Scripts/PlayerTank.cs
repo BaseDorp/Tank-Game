@@ -11,6 +11,11 @@ public class PlayerTank : Tank
     [SerializeField]
     protected CharacterController controller;
 
+    private void Start()
+    {
+        Gamemode.Instance.Players.Add(this);
+    }
+
     void Update()
     {
         // Time since last bullet fired

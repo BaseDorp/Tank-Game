@@ -11,13 +11,13 @@ public class MissileTank : AiTank
     void Start()
     {
         Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
-        player1LastLoc = this.transform.position;
+        //player1LastLoc = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bullets > 0 && Player1.tankState == TankState.Alive)
+        if (bullets > 0 && bTankAlive)
         {
             Aim();
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radar : AiTank
+public class Radar : MonoBehaviour
 {
     [SerializeField]
     float rotSpeed = 50;
@@ -35,7 +35,7 @@ public class Radar : AiTank
 
             if (hit.collider.tag == "Player1")
             {
-                player1LastLoc = hit.transform.position;
+                //player1LastLoc = hit.transform.position;
             }
         }
     }
