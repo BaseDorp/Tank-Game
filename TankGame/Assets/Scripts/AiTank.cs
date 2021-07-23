@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class AiTank : Tank
 {
-    //protected static PlayerTank Player1; dont need?
-    public static List<Vector3> LastPlayerLocations;
-
     [SerializeField]
     protected int bullets = 3;
     [SerializeField]
     protected float reloadTime = 3f;
 
-    Vector3 rayDir;
-    Ray ray;
-    RaycastHit hitInfo;
+    private Vector3 closestPlayer;
 
-    // Start is called before the first frame update
     void Start()
     {
-        LastPlayerLocations = new List<Vector3>();
-        LastPlayerLocations.Add(new Vector3()); // TODO make this not shit
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bullets > 0/* &&b TankAlive */)
+        if (bullets > 0)
         {
             Aim();
         }
@@ -41,6 +34,8 @@ public class AiTank : Tank
 
     protected void Aim()
     {
+        float distanceFromPlayer = 0;
+
         for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
         {
             Vector3 rayDir = Gamemode.Instance.Players[i].transform.position - this.transform.position;
@@ -54,12 +49,18 @@ public class AiTank : Tank
                 if (hitInfo.collider.GetComponent<PlayerTank>())
                 {
                     Debug.DrawLine(Raycast.origin, hitInfo.point, Color.blue);
-                    // If hit, update the last known location of that player
-                    LastPlayerLocations[i] = hitInfo.collider.transform.position;
+
+                    // Check which player is closest
+                    if (hitInfo.distance < distanceFromPlayer || distanceFromPlayer == 0f)
+                    {
+                        distanceFromPlayer = hitInfo.distance;
+                        closestPlayer = Gamemode.Instance.Players[i].transform.position;
+                    }
+
+                    //LastPlayerLocations[i] = hitInfo.collider.transform.position;
 
                     // TODO look at current player position - previous player position 
-                    // look for closest player using raycast distance
-                    this.Turret.LookAt(new Vector3(LastPlayerLocations[i].x, this.transform.position.y, LastPlayerLocations[i].z));
+                    this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
                     //FireBullet(); TODO uncommoent
                 }
                 else
@@ -71,7 +72,7 @@ public class AiTank : Tank
         // make AI go to closest player location // firing distance for ai tank?
 
 
-
+        // OLD CODE
         //// Gets the direction of the player to the AI
         //rayDir = Player1.transform.position - this.transform.position;
         //// Sets that array to point at the player

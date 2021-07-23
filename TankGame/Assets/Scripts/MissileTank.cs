@@ -17,7 +17,7 @@ public class MissileTank : AiTank
     // Update is called once per frame
     void Update()
     {
-        if (bullets > 0 && bTankAlive)
+        if (bullets > 0)
         {
             Aim();
         }
