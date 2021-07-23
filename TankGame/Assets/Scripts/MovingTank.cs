@@ -12,7 +12,7 @@ public class MovingTank : AiTank
     {
         // Setting default values
         gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
-        Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
+        //Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
         //player1LastLoc = this.transform.position;
 
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];

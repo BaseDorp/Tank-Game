@@ -10,7 +10,7 @@ public class MissileTank : AiTank
     // Start is called before the first frame update
     void Start()
     {
-        Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
+        //Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
         //player1LastLoc = this.transform.position;
     }
 

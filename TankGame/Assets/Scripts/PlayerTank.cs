@@ -13,7 +13,7 @@ public class PlayerTank : Tank
 
     private void Start()
     {
-        Gamemode.Instance.Players.Add(this);
+        Gamemode.Instance.NewPlayer(this);
     }
 
     void Update()

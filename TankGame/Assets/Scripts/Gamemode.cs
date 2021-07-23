@@ -30,9 +30,9 @@ public class Gamemode : MonoBehaviour
 
     }
 
-    public void NewPlayer()
+    public void NewPlayer(PlayerTank player) // TODO make this not need an existing player instance?
     {
-        Players.Add(new PlayerTank());
+        Players.Add(player);
     }
 
     public void RemovePlayer(PlayerTank player)
