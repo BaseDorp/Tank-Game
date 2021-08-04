@@ -9,7 +9,7 @@ public class AiTank : Tank
     [SerializeField]
     protected float reloadTime = 3f;
 
-    private Vector3 closestPlayer;
+    protected Vector3 closestPlayer; // TODO might have to be private so taht each tank has their own closestPlayer
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class AiTank : Tank
         this.elapsedTime += Time.deltaTime;
     }
 
-    protected void Aim()
+    protected virtual void Aim()
     {
         float distanceFromPlayer = 0;
 
@@ -57,7 +57,8 @@ public class AiTank : Tank
                         closestPlayer = Gamemode.Instance.Players[i].transform.position;
                     }
 
-                    //LastPlayerLocations[i] = hitInfo.collider.transform.position;
+                    // Update the last seen location of that tank
+                    Gamemode.Instance.Players[i].UpdateLastKnownLocation();
 
                     // TODO look at current player position - previous player position 
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
@@ -69,8 +70,6 @@ public class AiTank : Tank
                 }
             }
         }
-        // make AI go to closest player location // firing distance for ai tank?
-
 
         // OLD CODE
         //// Gets the direction of the player to the AI

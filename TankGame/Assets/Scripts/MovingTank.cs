@@ -12,8 +12,6 @@ public class MovingTank : AiTank
     {
         // Setting default values
         gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
-        //Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
-        //player1LastLoc = this.transform.position;
 
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
     }
@@ -37,11 +35,59 @@ public class MovingTank : AiTank
         UpdateTarget();
     }
 
+    protected override void Aim()
+    {
+        float distanceFromPlayer = 0;
+
+        for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
+        {
+            Vector3 rayDir = Gamemode.Instance.Players[i].transform.position - this.transform.position;
+            Ray Raycast = new Ray(this.transform.position, rayDir);
+            RaycastHit hitInfo;
+
+            // TODO change distance so that it covers entire map
+            if (Physics.Raycast(Raycast, out hitInfo, 100))
+            {
+                // Checks if the AI has line of sight to player
+                if (hitInfo.collider.GetComponent<PlayerTank>())
+                {
+                    Debug.DrawLine(Raycast.origin, hitInfo.point, Color.blue);
+
+                    // Check which player is closest
+                    if (hitInfo.distance < distanceFromPlayer || distanceFromPlayer == 0f)
+                    {
+                        distanceFromPlayer = hitInfo.distance;
+                        closestPlayer = Gamemode.Instance.Players[i].transform.position;
+                    }
+
+                    // Update the last seen location of that tank
+                    Gamemode.Instance.Players[i].UpdateLastKnownLocation();
+
+                    // TODO look at current player position - previous player position 
+                    this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
+                    //FireBullet(); TODO uncommoent
+                }
+                else
+                {
+                    Debug.DrawLine(Raycast.origin, hitInfo.point, Color.white);
+                }
+            }
+
+            // If tank does not see any players directly
+
+
+            // find which lastPlayerLocation is closest
+            //rayDir.magnitude
+
+            // change closestPlayer to the closest lastPlayerLocation
+        }
+    }
+
     void UpdateTarget()
     {
         foreach(NavMeshAgent agent in navAgents)
         {
-            //agent.destination = player1LastLoc;
+            agent.destination = closestPlayer;
         }
     }
 

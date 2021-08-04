@@ -10,7 +10,6 @@ public class Radar : MonoBehaviour
     Ray ray;
     RaycastHit hitInfo;
     RaycastHit[] hits;
-    LayerMask layerMask = ~1 << 8;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +32,14 @@ public class Radar : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, hit.point, Color.blue);
 
-            if (hit.collider.tag == "Player1")
+            if (hit.collider.tag == "Player1") // TODO change this to player
             {
-                //player1LastLoc = hit.transform.position;
+                // Checks if the hit object has a PlayerTank script
+                if (hit.collider.gameObject.GetComponent<PlayerTank>())
+                {
+                    // Updates location to other tanks
+                    hit.collider.gameObject.GetComponent<PlayerTank>().UpdateLastKnownLocation();
+                }
             }
         }
     }

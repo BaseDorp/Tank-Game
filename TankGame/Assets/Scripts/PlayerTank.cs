@@ -10,6 +10,8 @@ public class PlayerTank : Tank
 
     [SerializeField]
     protected CharacterController controller;
+    [SerializeField]
+    Vector3 lastKnownLocation;
 
     private void Start()
     {
@@ -61,5 +63,10 @@ public class PlayerTank : Tank
         {
             TurnLeft();
         }
+    }
+
+    public void UpdateLastKnownLocation()
+    {
+        this.lastKnownLocation = this.transform.position;
     }
 }
