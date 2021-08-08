@@ -66,6 +66,7 @@ public class MovingTank : AiTank
                     // TODO look at current player position - previous player position 
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
                     //FireBullet(); TODO uncommoent
+                    Debug.Log("SEE PLAYER");
                 }
                 else
                 {
@@ -73,13 +74,17 @@ public class MovingTank : AiTank
                 }
             }
 
-            // If tank does not see any players directly
-
-
-            // find which lastPlayerLocation is closest
-            //rayDir.magnitude
-
-            // change closestPlayer to the closest lastPlayerLocation
+            // If tank does not see any players directly // and player has to have a last known location
+            if (distanceFromPlayer == 0 && Gamemode.Instance.Players[i].lastKnownLocation != Vector3.zero)
+            {
+                rayDir = Gamemode.Instance.Players[i].lastKnownLocation - this.transform.position;
+                // gets closest last known player location
+                if (rayDir.magnitude < distanceFromPlayer)
+                {
+                    closestPlayer = Gamemode.Instance.Players[i].lastKnownLocation;
+                    Debug.Log("GOING TO CLOSEST PLAYER");
+                }
+            }
         }
     }
 

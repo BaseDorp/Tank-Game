@@ -11,7 +11,7 @@ public class PlayerTank : Tank
     [SerializeField]
     protected CharacterController controller;
     [SerializeField]
-    Vector3 lastKnownLocation;
+    public Vector3 lastKnownLocation { get; private set; }
 
     private void Start()
     {
