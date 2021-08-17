@@ -8,6 +8,8 @@ public class AiTank : Tank
     protected int bullets = 3;
     [SerializeField]
     protected float reloadTime = 3f;
+    [SerializeField]
+    protected float sightDistance = 100f;
 
     protected Vector3 closestPlayer; // TODO might have to be private so taht each tank has their own closestPlayer
 
@@ -42,8 +44,7 @@ public class AiTank : Tank
             Ray Raycast = new Ray(this.transform.position, rayDir);
             RaycastHit hitInfo;
 
-            // TODO change distance so that it covers entire map
-            if (Physics.Raycast(Raycast, out hitInfo, 100))
+            if (Physics.Raycast(Raycast, out hitInfo, sightDistance))
             {
                 // Checks if the AI has line of sight to player
                 if (hitInfo.collider.GetComponent<PlayerTank>())

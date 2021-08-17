@@ -45,8 +45,7 @@ public class MovingTank : AiTank
             Ray Raycast = new Ray(this.transform.position, rayDir);
             RaycastHit hitInfo;
 
-            // TODO change distance so that it covers entire map
-            if (Physics.Raycast(Raycast, out hitInfo, 100))
+            if (Physics.Raycast(Raycast, out hitInfo, sightDistance))
             {
                 // Checks if the AI has line of sight to player
                 if (hitInfo.collider.GetComponent<PlayerTank>())
@@ -73,26 +72,60 @@ public class MovingTank : AiTank
                     Debug.DrawLine(Raycast.origin, hitInfo.point, Color.white);
                 }
             }
+        }
 
-            // If tank does not see any players directly // and player has to have a last known location
-            if (distanceFromPlayer == 0 && Gamemode.Instance.Players[i].lastKnownLocation != Vector3.zero)
+        // If the ai does not see a player
+        if (closestPlayer == Vector3.zero)
+        {
+            foreach (PlayerTank player in Gamemode.Instance.Players)
             {
-                rayDir = Gamemode.Instance.Players[i].lastKnownLocation - this.transform.position;
-                // gets closest last known player location
-                if (rayDir.magnitude < distanceFromPlayer)
+
+                if (player.lastKnownLocation != Vector3.zero)
                 {
-                    closestPlayer = Gamemode.Instance.Players[i].lastKnownLocation;
-                    Debug.Log("GOING TO CLOSEST PLAYER");
+                    Vector3 directionVector = player.lastKnownLocation - this.transform.position;
+                    if (directionVector.magnitude < distanceFromPlayer || distanceFromPlayer == 0)
+                    {
+                        distanceFromPlayer = directionVector.magnitude;
+                        closestPlayer = player.lastKnownLocation;
+                    }
                 }
             }
         }
+
+        //// If tank does not see any players directly // and player has to have a last known location
+        //if (Gamemode.Instance.Players[i].lastKnownLocation != Vector3.zero)
+        //{
+        //    Debug.Log("sees not player");
+
+        //    Vector3 rayDir = Gamemode.Instance.Players[i].lastKnownLocation - this.transform.position;
+        //    // gets closest last known player location
+        //    if (rayDir.magnitude < distanceFromPlayer && closestPlayer == Vector3.zero)
+        //    {
+        //        distanceFromPlayer = rayDir.magnitude;
+        //        closestPlayer = Gamemode.Instance.Players[i].lastKnownLocation;
+        //        Debug.Log("GOING TO CLOSEST PLAYER");
+        //    }
+        //    Debug.Log(distanceFromPlayer);
+        //}
+
+
+        // go after closest last known location if AI is not in line of sight of a player
+
+        // Ai is not in line of sight of a player
+        // closest player should be null if cant see player
+        // if vector3.zero, then start going through last known locations
+        // find is distance is less than distanceFromPlayer, then set closest player
     }
 
     void UpdateTarget()
     {
-        foreach(NavMeshAgent agent in navAgents)
+        // Only update destination if there is a destination
+        if (closestPlayer != Vector3.zero)
         {
-            agent.destination = closestPlayer;
+            foreach (NavMeshAgent agent in navAgents)
+            {
+                agent.destination = closestPlayer;
+            }
         }
     }
 
