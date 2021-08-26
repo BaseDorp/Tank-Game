@@ -74,23 +74,23 @@ public class MovingTank : AiTank
             }
         }
 
-        // If the ai does not see a player
-        if (closestPlayer == Vector3.zero)
-        {
-            foreach (PlayerTank player in Gamemode.Instance.Players)
-            {
+        //// If the ai does not see a player
+        //if (closestPlayer == Vector3.zero)
+        //{
+        //    foreach (PlayerTank player in Gamemode.Instance.Players)
+        //    {
 
-                if (player.lastKnownLocation != Vector3.zero)
-                {
-                    Vector3 directionVector = player.lastKnownLocation - this.transform.position;
-                    if (directionVector.magnitude < distanceFromPlayer || distanceFromPlayer == 0)
-                    {
-                        distanceFromPlayer = directionVector.magnitude;
-                        closestPlayer = player.lastKnownLocation;
-                    }
-                }
-            }
-        }
+        //        if (player.lastKnownLocation != Vector3.zero)
+        //        {
+        //            Vector3 directionVector = player.lastKnownLocation - this.transform.position;
+        //            if (directionVector.magnitude < distanceFromPlayer || distanceFromPlayer == 0)
+        //            {
+        //                distanceFromPlayer = directionVector.magnitude;
+        //                closestPlayer = player.lastKnownLocation;
+        //            }
+        //        }
+        //    }
+        //}
 
         //// If tank does not see any players directly // and player has to have a last known location
         //if (Gamemode.Instance.Players[i].lastKnownLocation != Vector3.zero)
