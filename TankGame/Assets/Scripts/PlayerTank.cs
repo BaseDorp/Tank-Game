@@ -14,8 +14,9 @@ public class PlayerTank : Tank
     public Vector3 lastKnownLocation { get; private set; }
 
     private void Start()
-    {
+    { 
         Gamemode.Instance.NewPlayer(this);
+        lastKnownLocation = Vector3.zero;
     }
 
     void Update()

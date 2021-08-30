@@ -15,7 +15,7 @@ public class AiTank : Tank
 
     void Start()
     {
-        
+        //closestPlayer = new Vector3(100, 100, 100);   
     }
 
     // Update is called once per frame

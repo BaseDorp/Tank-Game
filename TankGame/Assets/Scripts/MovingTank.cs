@@ -12,8 +12,8 @@ public class MovingTank : AiTank
     {
         // Setting default values
         gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
-
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
+        closestPlayer = new Vector3(100, 100, 100);
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class MovingTank : AiTank
             Ray Raycast = new Ray(this.transform.position, rayDir);
             RaycastHit hitInfo;
 
+            // Raycasts to each player for 'sightDistance' units
             if (Physics.Raycast(Raycast, out hitInfo, sightDistance))
             {
                 // Checks if the AI has line of sight to player
@@ -74,53 +75,36 @@ public class MovingTank : AiTank
             }
         }
 
-        //// If the ai does not see a player
-        //if (closestPlayer == Vector3.zero)
-        //{
-        //    foreach (PlayerTank player in Gamemode.Instance.Players)
-        //    {
+        // TODO incorporate lastknownlocations with finding closest player
+        // line of sight just updates last known location
+        // ai's closest target is the closest last known location
+        // only fires if the player is in line of sight (raycast)
 
-        //        if (player.lastKnownLocation != Vector3.zero)
-        //        {
-        //            Vector3 directionVector = player.lastKnownLocation - this.transform.position;
-        //            if (directionVector.magnitude < distanceFromPlayer || distanceFromPlayer == 0)
-        //            {
-        //                distanceFromPlayer = directionVector.magnitude;
-        //                closestPlayer = player.lastKnownLocation;
-        //            }
-        //        }
-        //    }
-        //}
+        foreach (PlayerTank player in Gamemode.Instance.Players)
+        {
+            distanceFromPlayer = Vector3.Distance(player.lastKnownLocation, this.transform.position);
 
-        //// If tank does not see any players directly // and player has to have a last known location
-        //if (Gamemode.Instance.Players[i].lastKnownLocation != Vector3.zero)
-        //{
-        //    Debug.Log("sees not player");
+            if (distanceFromPlayer < Vector3.Distance(closestPlayer, this.transform.position) && player.lastKnownLocation != Vector3.zero)
+            {
+                closestPlayer = player.transform.position;
+            }
+        }
 
-        //    Vector3 rayDir = Gamemode.Instance.Players[i].lastKnownLocation - this.transform.position;
-        //    // gets closest last known player location
-        //    if (rayDir.magnitude < distanceFromPlayer && closestPlayer == Vector3.zero)
-        //    {
-        //        distanceFromPlayer = rayDir.magnitude;
-        //        closestPlayer = Gamemode.Instance.Players[i].lastKnownLocation;
-        //        Debug.Log("GOING TO CLOSEST PLAYER");
-        //    }
-        //    Debug.Log(distanceFromPlayer);
-        //}
+        if (distanceFromPlayer < 5) // Resetting the closest player so it doesnt keep comparing it to the same location
+        {
+            closestPlayer = new Vector3(100, 100, 100);
+        }
 
-
-        // go after closest last known location if AI is not in line of sight of a player
-
-        // Ai is not in line of sight of a player
-        // closest player should be null if cant see player
-        // if vector3.zero, then start going through last known locations
-        // find is distance is less than distanceFromPlayer, then set closest player
+        // Stretch. Have the AI "lock on" to a target. This way it isnt constitally switching between targets
+        // TODO have players in line of sight more of a priority than closest one that isnt in line of sight
+        //TODO AI will try to go after a player that it might not have the ability to get to
+        // aka judge closest player by route and if it is even possible to reach them not by raycast distance
     }
 
     void UpdateTarget()
     {
         // Only update destination if there is a destination
-        if (closestPlayer != Vector3.zero)
+        if (closestPlayer != new Vector3(100,100,100))
         {
             foreach (NavMeshAgent agent in navAgents)
             {
