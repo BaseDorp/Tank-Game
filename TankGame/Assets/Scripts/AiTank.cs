@@ -13,9 +13,16 @@ public class AiTank : Tank
 
     protected Vector3 closestPlayer; // TODO might have to be private so taht each tank has their own closestPlayer
 
+    [SerializeField]
+    protected Sprite QuestionMark;
+    [SerializeField]
+    protected Sprite ExclamationPoint;
+    [SerializeField]
+    protected SpriteRenderer ThinkingSpriteRenderer;
+
     void Start()
-    {
-        //closestPlayer = new Vector3(100, 100, 100);   
+    { 
+        closestPlayer = new Vector3(100, 100, 100);   
     }
 
     // Update is called once per frame
@@ -62,6 +69,7 @@ public class AiTank : Tank
                     Gamemode.Instance.Players[i].UpdateLastKnownLocation();
 
                     // TODO look at current player position - previous player position 
+                    //ThinkingSpriteRenderer.sprite = ExclamationPoint; // TODO should probably move this SOC
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
                     //FireBullet(); TODO uncommoent
                 }

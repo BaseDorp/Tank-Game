@@ -64,6 +64,7 @@ public class MovingTank : AiTank
                     Gamemode.Instance.Players[i].UpdateLastKnownLocation();
 
                     // TODO look at current player position - previous player position 
+                    
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
                     //FireBullet(); TODO uncommoent
                     Debug.Log("SEE PLAYER");
