@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,15 +17,20 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void Online_Button_Clicked()
+    public void PlayClicked()
+    {
+        // Load first level
+    }
+
+    public void Sandbox()
     {
 
     }
 
-    public void LocalPlay()
+    public void Settings()
     {
-
-    }
+        // load settings prefab
+    }    
 
     public void Quit()
     {

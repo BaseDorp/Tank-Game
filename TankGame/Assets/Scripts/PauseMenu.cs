@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject MenuUI;
+
+    public Slider colorSliders;
+    public Image colorHandle;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,13 @@ public class PauseMenu : MonoBehaviour
     {
         MenuUI.SetActive(true);
         Time.timeScale = 0f;
+
+        colorSliders.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+    }
+
+    public void ValueChangeCheck()
+    {
+        colorHandle.color = Color.HSVToRGB(colorSliders.value, 1, 1);
     }
 
     public void Resume()
@@ -44,7 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Settings()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         // TODO load settings
     }
 
