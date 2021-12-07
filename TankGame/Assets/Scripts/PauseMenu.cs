@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject MenuUI;
 
-    public Slider colorSliders;
+    public Slider[] colorSliders;
     public Image colorHandle;
 
     // Start is called before the first frame update
@@ -34,17 +34,23 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void ValueChangeCheck()
+    {
+        foreach (Slider s in colorSliders)
+        {
+            colorHandle.color = Color.HSVToRGB(s.value, 1, 1);
+        }
+    }
+
     public void Pause()
     {
         MenuUI.SetActive(true);
         Time.timeScale = 0f;
 
-        colorSliders.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
-    }
-
-    public void ValueChangeCheck()
-    {
-        colorHandle.color = Color.HSVToRGB(colorSliders.value, 1, 1);
+        foreach (Slider s in colorSliders)
+        {
+            s.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        }
     }
 
     public void Resume()

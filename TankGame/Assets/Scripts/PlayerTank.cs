@@ -70,4 +70,13 @@ public class PlayerTank : Tank
     {
         this.lastKnownLocation = this.transform.position;
     }
+
+    public void SetColor(Color newColor)
+    {
+        if (bTankAlive)
+        {
+            this.baseRenderer.material.SetColor("_Color", newColor);
+            this.turretRenderer.material.SetColor("_Color", newColor);
+        }
+    }
 }

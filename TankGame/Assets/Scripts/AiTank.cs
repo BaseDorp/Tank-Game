@@ -11,7 +11,7 @@ public class AiTank : Tank
     [SerializeField]
     protected float sightDistance = 100f;
 
-    protected Vector3 closestPlayer; // TODO might have to be private so taht each tank has their own closestPlayer
+    protected Vector3 closestPlayer; // TODO might have to be private so that each tank has their own closestPlayer
 
     [SerializeField]
     protected Sprite QuestionMark;
