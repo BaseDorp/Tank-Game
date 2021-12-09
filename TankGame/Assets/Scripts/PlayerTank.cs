@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerTank : Tank
 {
@@ -10,6 +11,8 @@ public class PlayerTank : Tank
 
     [SerializeField]
     protected CharacterController controller;
+    [SerializeField]
+    protected PlayerInput playerInput;
     [SerializeField]
     public Vector3 lastKnownLocation { get; private set; }
 
@@ -24,7 +27,7 @@ public class PlayerTank : Tank
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
 
-        UpdateMovement();
+        //UpdateMovement();
 
         // Firing
         if (Input.GetAxis("Fire1") == 1)
@@ -36,7 +39,13 @@ public class PlayerTank : Tank
         BaseRotation(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
     }
 
-    void UpdateMovement()
+//     public void OnMovement(InputAction.CallbackContext value)
+//     {
+//         Vector2 inputMovement = value.ReadValue<Vector2>();
+//         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
+//     }
+
+    public void UpdateMovement(InputAction.CallbackContext value)
     {
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
@@ -65,6 +74,11 @@ public class PlayerTank : Tank
             TurnLeft();
         }
     }
+
+//     protected override void FireBullet()
+//     {
+//         base.FireBullet();
+//     }
 
     public void UpdateLastKnownLocation()
     {

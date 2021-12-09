@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637739813472262173
-    m_Hash: 2366804569
+      ticks: 637745852616730884
+    m_Hash: 3138588706
   m_LockFileStatus:
     m_FilePath: C:/Users/super/Documents/Unity Projects/TankGame/TankGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637739814453748051
-    m_Hash: 472803916
+      ticks: 637745852616775901
+    m_Hash: 1671242046
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -71,7 +71,11 @@ m_PackageAssets:
         - 1.12.5
         - 1.13.5
         - 1.14.1
+        - 1.14.4
+        - 1.14.7
         - 1.15.1
+        - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -85,7 +89,11 @@ m_PackageAssets:
         compatible:
         - 1.13.5
         - 1.14.1
+        - 1.14.4
+        - 1.14.7
         - 1.15.1
+        - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -446,12 +454,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
         revision: abb44f053e9a41d2e00e149e32a19bcec76e98b4
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.11
+    - packageId: com.unity.ide.visualstudio@2.0.12
       testable: 0
       isDirectDependency: 1
-      version: 2.0.11
+      version: 2.0.12
       source: 1
-      resolvedPath: C:\Users\super\Documents\Unity Projects\TankGame\TankGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.11
+      resolvedPath: C:\Users\super\Documents\Unity Projects\TankGame\TankGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.12
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -527,13 +535,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637613656180000000
+      datePublishedTicks: 637720564750000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-        revision: 680e06d94ffca728223ae2cb14bb919cd354e2c1
+        revision: 8d436ff053b9c59677b5e9799208143553cd02d9
         path: 
     - packageId: com.unity.ide.vscode@1.2.4
       testable: 0
@@ -3126,6 +3134,8 @@ m_PackageAssets:
         - 1.6.0-pre.4
         - 1.6.0
         - 1.6.1
+        - 1.6.2
+        - 1.6.3
         - 1.7.0-pre.1
         compatible:
         - 1.1.1
@@ -3202,6 +3212,8 @@ m_PackageAssets:
         - 1.6.0-pre.4
         - 1.6.0
         - 1.6.1
+        - 1.6.2
+        - 1.6.3
         - 1.7.0-pre.1
         verified: 1.4.11
       dependencies:
@@ -3387,12 +3399,40 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 0.0.12-preview.2
+        - 0.0.12-preview.5
+        - 0.0.12-preview.8
+        - 0.0.12-preview.10
+        - 0.0.12-preview.11
+        - 0.0.12-preview.13
+        - 0.0.12-preview.17
+        - 0.0.12-preview.19
+        - 0.0.12-preview.20
+        - 1.0.0-preview.1
+        - 1.0.1
+        - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
+        - 1.2.4
+        - 1.2.5
         compatible:
+        - 0.0.12-preview.2
+        - 0.0.12-preview.5
+        - 0.0.12-preview.8
+        - 0.0.12-preview.10
+        - 0.0.12-preview.11
+        - 0.0.12-preview.13
+        - 0.0.12-preview.17
+        - 0.0.12-preview.19
+        - 0.0.12-preview.20
+        - 1.0.0-preview.1
+        - 1.0.1
+        - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
-        verified: 1.2.1
+        - 1.2.4
+        - 1.2.5
+        verified: 1.2.5
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -3409,7 +3449,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 636984649280000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -3694,8 +3734,10 @@ m_PackageAssets:
       versions:
         all:
         - 0.1.5-preview
+        - 0.1.6-preview
         compatible:
         - 0.1.5-preview
+        - 0.1.6-preview
         verified: 
       dependencies: []
       resolvedDependencies: []
@@ -3714,7 +3756,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 636898921580000000
       documentationUrl: 
       hasRepository: 0
       repository:
@@ -3928,6 +3970,7 @@ m_PackageAssets:
         - 1.19.1
         - 1.19.2
         - 1.19.3
+        - 1.19.4
         compatible:
         - 0.0.5-preview
         - 0.0.6-preview
@@ -3975,7 +4018,8 @@ m_PackageAssets:
         - 1.19.1
         - 1.19.2
         - 1.19.3
-        verified: 1.19.3
+        - 1.19.4
+        verified: 1.19.4
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -4327,6 +4371,7 @@ m_PackageAssets:
         - 1.1.0-pre.9
         - 1.1.0-pre.10
         - 1.1.0-pre.11
+        - 1.1.0-pre.41
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -4334,6 +4379,7 @@ m_PackageAssets:
         - 1.1.0-pre.9
         - 1.1.0-pre.10
         - 1.1.0-pre.11
+        - 1.1.0-pre.41
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest

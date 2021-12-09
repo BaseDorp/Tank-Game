@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 1309644939640169509}
   - component: {fileID: 1309644939640169508}
   - component: {fileID: 999218998227847136}
+  - component: {fileID: 5308702590531073726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -122,6 +123,7 @@ MonoBehaviour:
   bTankAlive: 1
   tankColor: 0
   controller: {fileID: 1309644939640169508}
+  playerInput: {fileID: 0}
 --- !u!135 &1309644939640169509
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -166,6 +168,77 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.54, z: 1.78}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5308702590531073726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309644939640169945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a2efd99c2fdbcec45b8c2636ebcb145d,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1309644939640169947}
+        m_TargetAssemblyTypeName: PlayerTank, Assembly-CSharp
+        m_MethodName: UpdateMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5f35d10b-6899-4de9-86c7-59247c9635d5
+    m_ActionName: PlayerControls/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b10f1329-92be-47f7-8b51-ff143a3b4ef9
+    m_ActionName: PlayerControls/Aim[/Keyboard/rightArrow,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b16f41e-833e-45d5-aceb-839be77fee1e
+    m_ActionName: PlayerControls/Shoot
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7688e494-4c7f-4eef-8b5a-38a9e41002b5
+    m_ActionName: PlayerControls/Pause/Unpause
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &3108262247239510441
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,11 +9,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject MenuUI;
 
     public Slider[] colorSliders;
-    public Image colorHandle;
+    public Image[] colorHandle;
 
     // Start is called before the first frame update
     void Start()
     {
+        colorSliders = GetComponents<Slider>();
+
+
         MenuUI.SetActive(false);
     }
 
@@ -36,10 +39,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ValueChangeCheck()
     {
-        foreach (Slider s in colorSliders)
+        for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
         {
-            colorHandle.color = Color.HSVToRGB(s.value, 1, 1);
+            colorHandle[i].color = Color.HSVToRGB(colorSliders[i].value, 1, 1);
         }
+//         foreach (Slider s in colorSliders)
+//         {
+//             colorHandle.color = Color.HSVToRGB(s.value, 1, 1);
+//         }
     }
 
     public void Pause()
@@ -69,5 +76,10 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void NewPlayer()
+    {
+
     }
 }
