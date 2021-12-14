@@ -50,7 +50,7 @@ public class Tank : MonoBehaviour
         
     }
 
-    protected virtual void FireBullet()
+    public virtual void FireBullet()
     {
         if (this.elapsedTime >= this.shootRate)
         {
@@ -64,15 +64,15 @@ public class Tank : MonoBehaviour
     }
 
     // Rotation
-    protected void TurnRight()
-    {
-        this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
-    }
-
-    protected void TurnLeft()
-    {
-        this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
-    }
+//     protected void TurnRight()
+//     {
+//         this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
+//     }
+// 
+//     protected void TurnLeft()
+//     {
+//         this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
+//     }
 
     // Rotation of the base of the tank based off of an Vector3
     protected void BaseRotation(Vector3 _lookRotation)
@@ -84,7 +84,6 @@ public class Tank : MonoBehaviour
         }
     }
 
-    // Collision
     private void OnCollisionEnter(Collision collision)
     {
         // Tank shot
@@ -97,8 +96,8 @@ public class Tank : MonoBehaviour
         }
     }
 
-    public void SetTankColor(PlayerTank player, TankColor color)
+    public void SetTankColor(PlayerTank player, TankColor color) // TODO idk why i am passing in a player tank
     {
-        player.tankColor = color;
+        this.tankColor = color;
     }
 }

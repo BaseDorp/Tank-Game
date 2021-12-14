@@ -30,7 +30,7 @@ public class MissileTank : AiTank
         this.elapsedTime += Time.deltaTime;
     }
 
-    protected override void FireBullet()
+    public override void FireBullet()
     {
         if (this.elapsedTime >= this.shootRate && bullets > 0)
         {

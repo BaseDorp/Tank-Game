@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerTank : Tank
 {
-    float horizontalValue = 0;
-    float verticalValue = 0;
     float gravity = 0;
 
     [SerializeField]
@@ -27,16 +25,16 @@ public class PlayerTank : Tank
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
 
-        //UpdateMovement();
+        UpdateMovement();
 
         // Firing
-        if (Input.GetAxis("Fire1") == 1)
-        {
-            this.FireBullet();
-        }
+//         if (Input.GetAxis("Fire1") == 1)
+//         {
+//             this.FireBullet();
+//         }
 
         // Changes the Rotation of the base of the tank based of direction of movement
-        BaseRotation(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
+        //BaseRotation(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
     }
 
 //     public void OnMovement(InputAction.CallbackContext value)
@@ -45,11 +43,21 @@ public class PlayerTank : Tank
 //         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
 //     }
 
-    public void UpdateMovement(InputAction.CallbackContext value)
+    public void UpdateInput(InputAction.CallbackContext value)
     {
-        horizontalValue = Input.GetAxis("Horizontal");
-        verticalValue = Input.GetAxis("Vertical");
+        // Movement Input
+        this.input = new Vector3(value.ReadValue<Vector2>().x, 0, value.ReadValue<Vector2>().y);
+        
 
+        // Aim Input
+        
+
+        // Firing Input
+
+    }
+
+    public void UpdateMovement()
+    {
         // Gravity
         if (controller.isGrounded)
         {
@@ -61,24 +69,31 @@ public class PlayerTank : Tank
         }
 
         // player movement
-        this.input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
         controller.Move(input * this.movementSpeed * Time.deltaTime);
+        this.BaseRotation(this.input);
 
         // player rotation
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            TurnRight();
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            TurnLeft();
-        }
+        //         if (Input.GetKey(KeyCode.RightArrow))
+        //         {
+        //             TurnRight();
+        //         }
+        //         if (Input.GetKey(KeyCode.LeftArrow))
+        //         {
+        //             TurnLeft();
+        //         }
     }
 
-//     protected override void FireBullet()
-//     {
-//         base.FireBullet();
-//     }
+    public void Aim(InputAction.CallbackContext value)
+    {
+        if (value.ReadValue<float>() > 0) // left
+        {
+            this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
+        }
+        else if (value.ReadValue<float>() < 0) // right
+        {
+            this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
+        }
+    }
 
     public void UpdateLastKnownLocation()
     {

@@ -110,7 +110,7 @@ public class AiTank : Tank
         bullets = 3;
     }
 
-    protected override void FireBullet()
+    public override void FireBullet()
     {
         if (this.elapsedTime >= this.shootRate && bullets > 0)
         {
