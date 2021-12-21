@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    GameObject MainMenuObject;
+    [SerializeField]
+    GameObject LevelSelectObject;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        MainMenuObject.SetActive(true);
+        LevelSelectObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,19 +23,14 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void PlayClicked()
+    public void ClickedLevel(int levelNumber)
     {
-        // Load first level
+        SceneManager.LoadScene(sceneBuildIndex: levelNumber);
     }
 
     public void Sandbox()
     {
-
-    }
-
-    public void Settings()
-    {
-        // load settings prefab
+        //SceneManager.LoadScene(/*Scene Name*/);
     }    
 
     public void Quit()

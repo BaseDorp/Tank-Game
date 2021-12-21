@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,30 +12,21 @@ public class PauseMenu : MonoBehaviour
     public Slider[] colorSliders;
     public Image[] colorHandle;
 
+    bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
         colorSliders = GetComponents<Slider>();
+        MenuUI.SetActive(true);
 
-
-        MenuUI.SetActive(false);
+        Debug.Log(InputSystem.devices.Count);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // checks if menu is active (already displayed)
-            if (MenuUI.activeInHierarchy)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        
     }
 
     public void ValueChangeCheck()
@@ -51,8 +43,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        MenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        if (isPaused)
+        {
+            MenuUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            MenuUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
         foreach (Slider s in colorSliders)
         {
@@ -62,14 +62,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        MenuUI.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
-    public void Settings()
-    {
-        //Time.timeScale = 1f;
-        // TODO load settings
+        
     }
 
     public void MainMenu()
