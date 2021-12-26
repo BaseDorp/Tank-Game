@@ -7,16 +7,14 @@ public class Gamemode : MonoBehaviour
     // Singleton Instance
     public static Gamemode Instance { get; private set; }
 
-    // Moving tanks need to go to the closest last position of a tank
-    // Radars should update the last known location of THAT tank (List of locations to show each last known loccation?)
-    // only moving tanks need to know last known locations, and radar? or ai tanks should show too?
-    // if tank sees player, update the last known location in the same spot as players list
-
-
     [SerializeField]
     int NumberOfPlayers;
     [SerializeField]
     public List<PlayerTank> Players;
+
+    // Location where new players will spawn in
+    [SerializeField]
+    public Transform PlayerStartLocation;
 
     void Awake()
     {

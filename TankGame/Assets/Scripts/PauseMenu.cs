@@ -18,9 +18,11 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         colorSliders = GetComponents<Slider>();
-        MenuUI.SetActive(true);
+        this.Pause();
 
         Debug.Log(InputSystem.devices.Count);
+
+        // enable first UI player card and call UI player card to disable the others
     }
 
     // Update is called once per frame
@@ -47,11 +49,13 @@ public class PauseMenu : MonoBehaviour
         {
             MenuUI.SetActive(false);
             Time.timeScale = 1f;
+            isPaused = false;
         }
         else
         {
             MenuUI.SetActive(true);
             Time.timeScale = 0f;
+            isPaused = true;
         }
 
         foreach (Slider s in colorSliders)
