@@ -144,17 +144,6 @@
                 },
                 {
                     "name": "",
-                    "id": "10b13c78-672b-4bb8-9e9e-f60153f164f3",
-                    "path": "<Mouse>/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d46c3561-2126-41ce-a0fa-9a27ca709700",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -222,6 +211,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": []
         }
     ]
 }

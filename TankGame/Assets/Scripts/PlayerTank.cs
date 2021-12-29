@@ -10,7 +10,7 @@ public class PlayerTank : Tank
     [SerializeField]
     protected CharacterController controller;
     [SerializeField]
-    protected PlayerInput playerInput;
+    public PlayerInput playerInput; // TODO make this not public
     [SerializeField]
     public Vector3 lastKnownLocation { get; private set; }
 
@@ -18,6 +18,8 @@ public class PlayerTank : Tank
     { 
         Gamemode.Instance.NewPlayer(this);
         lastKnownLocation = Vector3.zero;
+
+        Debug.Log(this.playerInput.devices[0].displayName);
     }
 
     void Update()
@@ -107,5 +109,10 @@ public class PlayerTank : Tank
             this.baseRenderer.material.SetColor("_Color", newColor);
             this.turretRenderer.material.SetColor("_Color", newColor);
         }
+    }
+
+    public void ChangeInputDevice()
+    {
+        //playerInput.SwitchCurrentControlScheme();
     }
 }

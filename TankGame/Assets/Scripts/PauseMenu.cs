@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject MenuUI;
+    [SerializeField]
+    PlayerUICard[] playerCards;
 
     public Slider[] colorSliders;
     public Image[] colorHandle;
@@ -20,27 +22,21 @@ public class PauseMenu : MonoBehaviour
         colorSliders = GetComponents<Slider>();
         this.Pause();
 
-        Debug.Log(InputSystem.devices.Count);
-
+        foreach (PlayerUICard card in playerCards)
+        {
+            card.RemovePlayer();
+        }
         // enable first UI player card and call UI player card to disable the others
+        for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
+        {
+            playerCards[i].AddPlayer(Gamemode.Instance.Players[i]);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void ValueChangeCheck()
-    {
-        for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
-        {
-            colorHandle[i].color = Color.HSVToRGB(colorSliders[i].value, 1, 1);
-        }
-//         foreach (Slider s in colorSliders)
-//         {
-//             colorHandle.color = Color.HSVToRGB(s.value, 1, 1);
-//         }
     }
 
     public void Pause()
@@ -57,26 +53,11 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
             isPaused = true;
         }
-
-        foreach (Slider s in colorSliders)
-        {
-            s.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
-        }
-    }
-
-    public void Resume()
-    {
-        
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void NewPlayer()
-    {
-
     }
 }

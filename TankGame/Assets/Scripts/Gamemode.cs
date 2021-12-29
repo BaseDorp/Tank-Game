@@ -36,6 +36,8 @@ public class Gamemode : MonoBehaviour
 
     public void NewPlayer(PlayerTank player) // TODO make this not need an existing player instance?
     {
+        //PlayerTank player = new PlayerTank();
+        player.transform.position = PlayerStartLocation.position;
         Players.Add(player);
     }
 

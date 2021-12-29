@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309644939640169945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.47524166, y: 0.55, z: 0.25}
+  m_LocalPosition: {x: -10.983952, y: 0.5099999, z: -1.2376149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1045784221529563872}
@@ -124,7 +124,7 @@ MonoBehaviour:
   bTankAlive: 1
   tankColor: 0
   controller: {fileID: 1309644939640169508}
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 5308702590531073726}
 --- !u!135 &1309644939640169509
 SphereCollider:
   m_ObjectHideFlags: 0
