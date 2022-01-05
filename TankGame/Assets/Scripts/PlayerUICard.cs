@@ -11,7 +11,9 @@ public class PlayerUICard : MonoBehaviour
     GameObject PlayerOptions;
     [SerializeField]
     GameObject NewPlayerButton;
+
     TMPro.TMP_Dropdown InputDropdown;
+
     PlayerTank playerTank;
 
     // Start is called before the first frame update
@@ -27,15 +29,12 @@ public class PlayerUICard : MonoBehaviour
             InputDropdown.options.Add(new TMP_Dropdown.OptionData(device.displayName));
         }
 
-        //InputDropdown.options[0] = new TMP_Dropdown.OptionData(this.playerTank.playerInput.devices[0].displayName);
-
-        Debug.Log(playerTank.name);
+        // TODO set current selected dropdown option to the right input
     }
 
     public void ChangeInputDevice()
     {
 
-        //this.playerTank.ChangeInputDevice(InputSystem.devices[0]);
     }
 
     // Update is called once per frame

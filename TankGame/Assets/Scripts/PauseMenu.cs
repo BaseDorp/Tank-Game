@@ -22,15 +22,22 @@ public class PauseMenu : MonoBehaviour
         colorSliders = GetComponents<Slider>();
         this.Pause();
 
-        foreach (PlayerUICard card in playerCards)
-        {
-            card.RemovePlayer();
-        }
-        // enable first UI player card and call UI player card to disable the others
-        for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
-        {
-            playerCards[i].AddPlayer(Gamemode.Instance.Players[i]);
-        }
+        // get number of players
+        // number of player cards should equal number of players
+        // playercards[] should link to players[]
+        //
+
+
+        //foreach (PlayerUICard card in playerCards)
+        //{
+        //    card.RemovePlayer();
+        //}
+        //// enable first UI player card
+        //for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
+        //{
+        //    playerCards[i].AddPlayer(Gamemode.Instance.Players[i]);
+        //}
+        Debug.Log(Gamemode.Instance.Players.Count);
     }
 
     // Update is called once per frame

@@ -11,6 +11,8 @@ public class Gamemode : MonoBehaviour
     int NumberOfPlayers;
     [SerializeField]
     public List<PlayerTank> Players;
+    [SerializeField]
+    GameObject PlayerPrefab;
 
     // Location where new players will spawn in
     [SerializeField]
@@ -34,15 +36,21 @@ public class Gamemode : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        // Player 1
+        Instantiate(PlayerPrefab);
+    }
+
     public void NewPlayer(PlayerTank player) // TODO make this not need an existing player instance?
     {
-        //PlayerTank player = new PlayerTank();
         player.transform.position = PlayerStartLocation.position;
         Players.Add(player);
     }
 
     public void RemovePlayer(PlayerTank player)
-    {
+    { 
         Players.Remove(player);
+        Destroy(player.gameObject);
     }
 }

@@ -19,7 +19,7 @@ public class PlayerTank : Tank
         Gamemode.Instance.NewPlayer(this);
         lastKnownLocation = Vector3.zero;
 
-        Debug.Log(this.playerInput.devices[0].displayName);
+        playerInput.SwitchCurrentControlScheme(InputSystem.devices[0]);
     }
 
     void Update()
@@ -49,13 +49,6 @@ public class PlayerTank : Tank
     {
         // Movement Input
         this.input = new Vector3(value.ReadValue<Vector2>().x, 0, value.ReadValue<Vector2>().y);
-        
-
-        // Aim Input
-        
-
-        // Firing Input
-
     }
 
     public void UpdateMovement()
@@ -113,6 +106,6 @@ public class PlayerTank : Tank
 
     public void ChangeInputDevice()
     {
-        //playerInput.SwitchCurrentControlScheme();
+        playerInput.SwitchCurrentControlScheme(InputSystem.devices[0]);
     }
 }

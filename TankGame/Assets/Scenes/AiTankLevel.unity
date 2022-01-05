@@ -252,6 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberOfPlayers: 0
   Players: []
+  PlayerPrefab: {fileID: 1309644939640169945, guid: c8bd6d33df35b3b4382da001652988e6,
+    type: 3}
   PlayerStartLocation: {fileID: 1107824158}
 --- !u!114 &38790712
 MonoBehaviour:
@@ -1576,6 +1578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309644939640169945, guid: c8bd6d33df35b3b4382da001652988e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1309644939640169947, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
