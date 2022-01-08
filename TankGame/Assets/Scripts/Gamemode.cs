@@ -8,8 +8,6 @@ public class Gamemode : MonoBehaviour
     public static Gamemode Instance { get; private set; }
 
     [SerializeField]
-    int NumberOfPlayers;
-    [SerializeField]
     public List<PlayerTank> Players;
     [SerializeField]
     GameObject PlayerPrefab;
@@ -39,7 +37,7 @@ public class Gamemode : MonoBehaviour
     private void Start()
     {
         // Player 1
-        Instantiate(PlayerPrefab);
+        //Instantiate(PlayerPrefab);
     }
 
     public void NewPlayer(PlayerTank player) // TODO make this not need an existing player instance?
@@ -51,6 +49,6 @@ public class Gamemode : MonoBehaviour
     public void RemovePlayer(PlayerTank player)
     { 
         Players.Remove(player);
-        Destroy(player.gameObject);
+        //Destroy(player.gameObject);
     }
 }

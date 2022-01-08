@@ -19,7 +19,7 @@ public class PlayerUICard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.playerTank = Gamemode.Instance.Players[0];
+        playerTank = Gamemode.Instance.Players[1]; // TODO not do this
 
         InputDropdown = GetComponentInChildren<TMP_Dropdown>();
         InputDropdown.ClearOptions();
@@ -28,13 +28,12 @@ public class PlayerUICard : MonoBehaviour
             // Only get inputs for keyboards, gamepads, and mobile touch
             InputDropdown.options.Add(new TMP_Dropdown.OptionData(device.displayName));
         }
-
-        // TODO set current selected dropdown option to the right input
     }
 
     public void ChangeInputDevice()
     {
-
+        playerTank.playerInput.SwitchCurrentControlScheme(InputSystem.devices[InputDropdown.value]);
+        //playerTank.ChangeInputDevice(InputDropdown.value);
     }
 
     // Update is called once per frame

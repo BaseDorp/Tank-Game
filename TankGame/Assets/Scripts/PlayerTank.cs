@@ -15,11 +15,11 @@ public class PlayerTank : Tank
     public Vector3 lastKnownLocation { get; private set; }
 
     private void Start()
-    { 
+    {
+        playerInput = GetComponent<PlayerInput>();
+        Debug.Log(playerInput);
         Gamemode.Instance.NewPlayer(this);
         lastKnownLocation = Vector3.zero;
-
-        playerInput.SwitchCurrentControlScheme(InputSystem.devices[0]);
     }
 
     void Update()
@@ -28,6 +28,11 @@ public class PlayerTank : Tank
         this.elapsedTime += Time.deltaTime;
 
         UpdateMovement();
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            ChangeInputDevice(3);
+        }
 
         // Firing
 //         if (Input.GetAxis("Fire1") == 1)
@@ -104,8 +109,8 @@ public class PlayerTank : Tank
         }
     }
 
-    public void ChangeInputDevice()
+    public void ChangeInputDevice(int value)
     {
-        playerInput.SwitchCurrentControlScheme(InputSystem.devices[0]);
+        playerInput.SwitchCurrentControlScheme(InputSystem.devices[value]);
     }
 }

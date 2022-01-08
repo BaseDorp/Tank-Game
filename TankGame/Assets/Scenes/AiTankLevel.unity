@@ -250,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5daf1ba00ea182f47bca9e1443cf5675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPlayers: 0
   Players: []
   PlayerPrefab: {fileID: 1309644939640169945, guid: c8bd6d33df35b3b4382da001652988e6,
     type: 3}
@@ -1582,7 +1581,7 @@ PrefabInstance:
     - target: {fileID: 1309644939640169945, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1309644939640169947, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
@@ -1593,6 +1592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308702590531073726, guid: c8bd6d33df35b3b4382da001652988e6,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5308702590531073726, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
