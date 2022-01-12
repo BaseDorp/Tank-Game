@@ -8,16 +8,16 @@ public class PlayerTank : Tank
     float gravity = 0;
 
     [SerializeField]
-    protected CharacterController controller;
-    [SerializeField]
-    public PlayerInput playerInput; // TODO make this not public
+    CharacterController controller;
+    PlayerInput playerInput;
     [SerializeField]
     public Vector3 lastKnownLocation { get; private set; }
+
+    private float aimValue;
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        Debug.Log(playerInput);
         Gamemode.Instance.NewPlayer(this);
         lastKnownLocation = Vector3.zero;
     }
@@ -28,32 +28,17 @@ public class PlayerTank : Tank
         this.elapsedTime += Time.deltaTime;
 
         UpdateMovement();
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            ChangeInputDevice(3);
-        }
-
-        // Firing
-//         if (Input.GetAxis("Fire1") == 1)
-//         {
-//             this.FireBullet();
-//         }
-
-        // Changes the Rotation of the base of the tank based of direction of movement
-        //BaseRotation(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
+        Aim();
     }
 
-//     public void OnMovement(InputAction.CallbackContext value)
-//     {
-//         Vector2 inputMovement = value.ReadValue<Vector2>();
-//         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
-//     }
-
-    public void UpdateInput(InputAction.CallbackContext value)
+    public void UpdateMovementInput(InputAction.CallbackContext value)
     {
-        // Movement Input
         this.input = new Vector3(value.ReadValue<Vector2>().x, 0, value.ReadValue<Vector2>().y);
+    }
+
+    public void UpdateAimingInput(InputAction.CallbackContext value)
+    {
+        aimValue = value.ReadValue<float>();
     }
 
     public void UpdateMovement()
@@ -71,25 +56,15 @@ public class PlayerTank : Tank
         // player movement
         controller.Move(input * this.movementSpeed * Time.deltaTime);
         this.BaseRotation(this.input);
-
-        // player rotation
-        //         if (Input.GetKey(KeyCode.RightArrow))
-        //         {
-        //             TurnRight();
-        //         }
-        //         if (Input.GetKey(KeyCode.LeftArrow))
-        //         {
-        //             TurnLeft();
-        //         }
     }
 
-    public void Aim(InputAction.CallbackContext value)
+    public void Aim()
     {
-        if (value.ReadValue<float>() > 0) // left
+        if (aimValue > 0) // left
         {
             this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
         }
-        else if (value.ReadValue<float>() < 0) // right
+        else if (aimValue < 0) // right
         {
             this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
         }

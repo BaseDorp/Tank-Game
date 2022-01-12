@@ -13,6 +13,7 @@ public class PlayerUICard : MonoBehaviour
     GameObject NewPlayerButton;
 
     TMPro.TMP_Dropdown InputDropdown;
+    Slider ColorSlider;
 
     PlayerTank playerTank;
 
@@ -22,6 +23,8 @@ public class PlayerUICard : MonoBehaviour
         playerTank = Gamemode.Instance.Players[1]; // TODO not do this
 
         InputDropdown = GetComponentInChildren<TMP_Dropdown>();
+        ColorSlider = GetComponentInChildren<Slider>();
+
         InputDropdown.ClearOptions();
         foreach (var device in InputSystem.devices)
         {
@@ -32,14 +35,13 @@ public class PlayerUICard : MonoBehaviour
 
     public void ChangeInputDevice()
     {
-        playerTank.playerInput.SwitchCurrentControlScheme(InputSystem.devices[InputDropdown.value]);
-        //playerTank.ChangeInputDevice(InputDropdown.value);
+        playerTank.ChangeInputDevice(InputDropdown.value);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ColorChanged()
     {
-        
+        Color newColor = Color.HSVToRGB(ColorSlider.value, 0.8f, 0.8f);
+        playerTank.SetColor(new Color(newColor.r, newColor.g, newColor.b));
     }
 
     public void AddPlayer(PlayerTank player = null) // TODO make not null

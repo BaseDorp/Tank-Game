@@ -124,7 +124,6 @@ MonoBehaviour:
   bTankAlive: 1
   tankColor: 0
   controller: {fileID: 1309644939640169508}
-  playerInput: {fileID: 5308702590531073726}
 --- !u!135 &1309644939640169509
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -199,7 +198,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1309644939640169947}
         m_TargetAssemblyTypeName: PlayerTank, Assembly-CSharp
-        m_MethodName: UpdateInput
+        m_MethodName: UpdateMovementInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -215,7 +214,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1309644939640169947}
         m_TargetAssemblyTypeName: PlayerTank, Assembly-CSharp
-        m_MethodName: Aim
+        m_MethodName: UpdateAimingInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

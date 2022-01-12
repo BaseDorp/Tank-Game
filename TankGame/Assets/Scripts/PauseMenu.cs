@@ -37,7 +37,6 @@ public class PauseMenu : MonoBehaviour
         //{
         //    playerCards[i].AddPlayer(Gamemode.Instance.Players[i]);
         //}
-        Debug.Log(Gamemode.Instance.Players.Count);
     }
 
     // Update is called once per frame
