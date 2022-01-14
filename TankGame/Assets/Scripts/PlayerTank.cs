@@ -9,7 +9,7 @@ public class PlayerTank : Tank
 
     [SerializeField]
     CharacterController controller;
-    PlayerInput playerInput;
+    public PlayerInput playerInput;
     [SerializeField]
     public Vector3 lastKnownLocation { get; private set; }
 

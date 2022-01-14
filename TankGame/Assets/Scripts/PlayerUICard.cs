@@ -9,18 +9,16 @@ public class PlayerUICard : MonoBehaviour
 {
     [SerializeField]
     GameObject PlayerOptions;
-    [SerializeField]
-    GameObject NewPlayerButton;
 
     TMPro.TMP_Dropdown InputDropdown;
     Slider ColorSlider;
 
-    PlayerTank playerTank;
+    public PlayerTank playerTank;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTank = Gamemode.Instance.Players[1]; // TODO not do this
+        //playerTank = Gamemode.Instance.Players[1]; // TODO not do this
 
         InputDropdown = GetComponentInChildren<TMP_Dropdown>();
         ColorSlider = GetComponentInChildren<Slider>();
@@ -31,6 +29,10 @@ public class PlayerUICard : MonoBehaviour
             // Only get inputs for keyboards, gamepads, and mobile touch
             InputDropdown.options.Add(new TMP_Dropdown.OptionData(device.displayName));
         }
+        // TODO there is probably a better way to get the input device that the player is using without having to make the player input component public
+        InputDropdown.captionText.SetText(playerTank.playerInput.devices[0].displayName);
+
+        // Also when changing the dropdown it still says that keyboard is selected
     }
 
     public void ChangeInputDevice()
@@ -41,28 +43,19 @@ public class PlayerUICard : MonoBehaviour
     public void ColorChanged()
     {
         Color newColor = Color.HSVToRGB(ColorSlider.value, 0.8f, 0.8f);
-        playerTank.SetColor(new Color(newColor.r, newColor.g, newColor.b));
-    }
-
-    public void AddPlayer(PlayerTank player = null) // TODO make not null
-    {
-        // check if player is not null?
-
-        //this.playerTank = player;
-        // assign the image preview to be the camera from playerTank
-
-        PlayerOptions.SetActive(true);
-        NewPlayerButton.SetActive(false);
+        if (playerTank != null)
+        {
+            playerTank.SetColor(new Color(newColor.r, newColor.g, newColor.b));
+        }
     }
 
     public void RemovePlayer()
     {
-        // Makes sure you can't remove player 1
-        if (this.playerTank != Gamemode.Instance.Players[0])
+        // Makes sure you can't remove if there is only 1 player
+        if (Gamemode.Instance.Players.Count != 1)
         {
             this.playerTank = null;
             PlayerOptions.SetActive(false);
-            NewPlayerButton.SetActive(true);
         }
     }
 }

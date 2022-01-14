@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Gamemode : MonoBehaviour
 {
     // Singleton Instance
     public static Gamemode Instance { get; private set; }
 
+    public event EventHandler PlayerCountChanged;
     [SerializeField]
     public List<PlayerTank> Players;
-    [SerializeField]
-    GameObject PlayerPrefab;
+    //[SerializeField]
+    //GameObject PlayerPrefab;
 
     // Location where new players will spawn in
     [SerializeField]
@@ -36,19 +38,20 @@ public class Gamemode : MonoBehaviour
 
     private void Start()
     {
-        // Player 1
-        //Instantiate(PlayerPrefab);
+        
     }
 
-    public void NewPlayer(PlayerTank player) // TODO make this not need an existing player instance?
+    public void NewPlayer(PlayerTank player)
     {
-        player.transform.position = PlayerStartLocation.position;
+        //player.transform.position = PlayerStartLocation.position;
         Players.Add(player);
+        PlayerCountChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void RemovePlayer(PlayerTank player)
     { 
         Players.Remove(player);
-        //Destroy(player.gameObject);
+        Destroy(player.gameObject);
+        PlayerCountChanged(this, EventArgs.Empty);
     }
 }
