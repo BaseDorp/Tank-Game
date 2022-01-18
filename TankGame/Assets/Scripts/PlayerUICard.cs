@@ -54,8 +54,9 @@ public class PlayerUICard : MonoBehaviour
         // Makes sure you can't remove if there is only 1 player
         if (Gamemode.Instance.Players.Count != 1)
         {
-            this.playerTank = null;
             PlayerOptions.SetActive(false);
+            Gamemode.Instance.RemovePlayer(playerTank);
+            this.playerTank = null;
         }
     }
 }
