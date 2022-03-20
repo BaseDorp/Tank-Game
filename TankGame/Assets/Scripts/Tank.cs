@@ -91,13 +91,8 @@ public class Tank : MonoBehaviour
         {
             this.enabled = false;
             this.bTankAlive = false;
-            this.baseRenderer.material = deadTank;
-            this.turretRenderer.material = deadTank;
+            this.baseRenderer.material.SetColor("_Color", Color.gray);
+            this.turretRenderer.material.SetColor("_Color", Color.gray);
         }
-    }
-
-    public void SetTankColor(PlayerTank player, TankColor color) // TODO idk why i am passing in a player tank
-    {
-        this.tankColor = color;
     }
 }
