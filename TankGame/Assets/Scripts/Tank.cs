@@ -17,10 +17,9 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected Renderer turretRenderer;
     [SerializeField]
-    protected ParticleSystem fireVFX;
-
+    protected ParticleSystem explosionFX;
     [SerializeField]
-    protected Material deadTank;
+    private ParticleSystem smokeFX;
 
     // Tank Movement
     [SerializeField]
@@ -39,16 +38,6 @@ public class Tank : MonoBehaviour
     public bool bTankAlive = true;
     public enum TankColor { Blue, Green, Red, Yellow };
     public TankColor tankColor;
-
-    private void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public virtual void FireBullet()
     {
@@ -89,8 +78,10 @@ public class Tank : MonoBehaviour
         // Tank shot
         if (collision.collider.tag == "bullet")
         {
-            this.enabled = false;
-            this.bTankAlive = false;
+            explosionFX.Play();
+            smokeFX.Play();
+            //this.enabled = false;
+            //this.bTankAlive = false;
             this.baseRenderer.material.SetColor("_Color", Color.gray);
             this.turretRenderer.material.SetColor("_Color", Color.gray);
         }
