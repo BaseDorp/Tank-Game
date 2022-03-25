@@ -41,13 +41,13 @@ public class Tank : MonoBehaviour
 
     public virtual void FireBullet()
     {
+        Debug.Log("");
         if (this.elapsedTime >= this.shootRate)
         {
             //Reset the time
             this.elapsedTime = 0.0f;
    
             BulletManager.Instance.SpawnFromPool("bullet", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
-            //Instantiate(fireVFX);
             //fireVFX.Play();
         }
     }

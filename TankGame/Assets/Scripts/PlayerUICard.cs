@@ -31,7 +31,7 @@ public class PlayerUICard : MonoBehaviour
         }
         // TODO there is probably a better way to get the input device that the player is using without having to make the player input component public
         InputDropdown.captionText.SetText(playerTank.playerInput.devices[0].displayName);
-
+        ChangeInputDevice();
         // Also when changing the dropdown it still says that keyboard is selected
     }
 

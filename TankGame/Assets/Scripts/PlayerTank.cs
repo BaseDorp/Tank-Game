@@ -14,12 +14,16 @@ public class PlayerTank : Tank
     public Vector3 lastKnownLocation { get; private set; }
 
     private float aimValue;
+    private Vector3 aim;
+    bool mouseInputType;
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         Gamemode.Instance.NewPlayer(this);
         lastKnownLocation = Vector3.zero;
+        SetColor(Color.blue);
+        this.turretRotSpeed = 5f;
     }
 
     void Update()
@@ -60,14 +64,41 @@ public class PlayerTank : Tank
 
     public void Aim()
     {
-        if (aimValue > 0) // left
+        // check if the player is using keyboard or controller
+        if (mouseInputType)
         {
-            this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
+            // get location of mouse on the screen
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                aim = new Vector3(hit.point.x, Turret.position.y, hit.point.z);
+                //Turret.LookAt(new Vector3(hit.point.x, Turret.position.y, hit.point.z), Vector3.up);
+                Vector3 targetDir = aim - Turret.position;
+                this.Turret.rotation = Quaternion.LookRotation(Vector3.RotateTowards(Turret.forward, targetDir, turretRotSpeed * Time.deltaTime, 0.0f));
+            }
         }
-        else if (aimValue < 0) // right
+        else // TODO unnessary, different method is used for gamepad input
         {
-            this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
+            //// 2 value axis aim
+            //if (aimValue > 0) // left
+            //{
+            //    this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.down, this.turretRotSpeed * Time.deltaTime);
+            //}
+            //else if (aimValue < 0) // right
+            //{
+            //    this.Turret.transform.RotateAround(this.Base.transform.position, Vector3.up, this.turretRotSpeed * Time.deltaTime);
+            //}
         }
+    }
+
+    // Sets the Turret rotation to match R-stick value for gamepads
+    public void AimGamepad(InputAction.CallbackContext value)
+    {
+        aim = new Vector3(value.ReadValue<Vector2>().x, 0, value.ReadValue<Vector2>().y);
+        if (aim == Vector3.zero) { return; }
+        this.Turret.rotation = Quaternion.LookRotation(aim, Vector3.up);
+        // TODO ??
+        //this.Turret.rotation = Quaternion.LookRotation(Vector3.RotateTowards(Turret.position, aim, turretRotSpeed * Time.deltaTime, 0.0f));
     }
 
     public void UpdateLastKnownLocation()
@@ -87,5 +118,15 @@ public class PlayerTank : Tank
     public void ChangeInputDevice(int value)
     {
         playerInput.SwitchCurrentControlScheme(InputSystem.devices[value]);
+
+        // Checks if script should check for mouse input when updating Aim()
+        if (playerInput.currentControlScheme == "Keyboard")
+        {
+            mouseInputType = true;
+        }
+        else
+        {
+            mouseInputType = false;
+        }
     }
 }

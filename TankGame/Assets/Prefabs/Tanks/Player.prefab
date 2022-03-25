@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166272803080251823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.026, z: 1.795}
+  m_LocalPosition: {x: 0, y: 0.69, z: 1.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4611416803405415863}
@@ -250,6 +250,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7688e494-4c7f-4eef-8b5a-38a9e41002b5
     m_ActionName: PlayerControls/Pause/Unpause
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1309644939640169947}
+        m_TargetAssemblyTypeName: PlayerTank, Assembly-CSharp
+        m_MethodName: AimGamepad
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ef7b458-61e6-4ae6-893e-d17e147ffefe
+    m_ActionName: PlayerControls/Aim (Gamepad)[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls

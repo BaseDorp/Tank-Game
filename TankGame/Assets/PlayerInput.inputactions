@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Aim (Gamepad)",
+                    "type": "Value",
+                    "id": "0ef7b458-61e6-4ae6-893e-d17e147ffefe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -133,33 +142,22 @@
                 },
                 {
                     "name": "",
-                    "id": "6234d5f4-5f69-4dc6-89f9-2f67afbff841",
-                    "path": "<Gamepad>/rightStick/x",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "Controller",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d46c3561-2126-41ce-a0fa-9a27ca709700",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "276f246a-72e3-41fb-94b0-b83f64668d67",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Controller",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "276f246a-72e3-41fb-94b0-b83f64668d67",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "fe35f5b4-c581-438b-a3ea-ae5f0f39c98f",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "Keyboard",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -183,6 +181,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Pause/Unpause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d4a10cb-0ef2-4a8c-b257-0985db0e971c",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Aim (Gamepad)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

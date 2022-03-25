@@ -79,29 +79,6 @@ public class AiTank : Tank
                 }
             }
         }
-
-        // OLD CODE
-        //// Gets the direction of the player to the AI
-        //rayDir = Player1.transform.position - this.transform.position;
-        //// Sets that array to point at the player
-        //ray = new Ray(this.transform.position, this.rayDir);
-
-        //// TODO change distance so that it covers entire map
-        //if (Physics.Raycast(ray, out hitInfo, 100))
-        //{
-        //    if (hitInfo.collider.GetComponent<PlayerTank>())
-        //    {
-        //        Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
-        //        LastPlayerLocations[0] = hitInfo.transform.position;
-        //        // TODO look at current player position - previous player position 
-        //        this.Turret.LookAt(new Vector3(LastPlayerLocations[0].x, this.transform.position.y, LastPlayerLocations[0].z));
-        //        FireBullet();
-        //    }
-        //    else
-        //    {
-        //        Debug.DrawLine(ray.origin, hitInfo.point, Color.white);
-        //    }
-        //}
     }
 
     protected virtual IEnumerator Reload()
