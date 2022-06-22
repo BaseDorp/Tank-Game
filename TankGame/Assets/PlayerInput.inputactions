@@ -154,7 +154,7 @@
                 {
                     "name": "",
                     "id": "fe35f5b4-c581-438b-a3ea-ae5f0f39c98f",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",

@@ -41,7 +41,8 @@ public class Tank : MonoBehaviour
 
     public virtual void FireBullet()
     {
-        Debug.Log("");
+        //Debug.Log(""); // TODO mouse click doesnt work with input system
+
         if (this.elapsedTime >= this.shootRate)
         {
             //Reset the time

@@ -47,21 +47,20 @@ public class BulletManager : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string _tag, Vector3 _pos, Quaternion _rot)
+    public void SpawnFromPool(string _tag, Vector3 _pos, Quaternion _rot, Vector3 closestPlayer = default(Vector3))
     {
         if (!bulletPool.ContainsKey(_tag))
         {
             Debug.LogWarning("Tag does not match object pool");
-            return null;
+            return;
         }
 
-        GameObject spawnObject = bulletPool[_tag].Dequeue();
+        GameObject spawnObject = bulletPool[_tag].Dequeue(); // could be a problem here when the bullet being dequeued is already active
         spawnObject.SetActive(true);
         spawnObject.transform.position = _pos;
         spawnObject.transform.rotation = _rot;
+        
 
         bulletPool[_tag].Enqueue(spawnObject);
-
-        return spawnObject;
     }
 }

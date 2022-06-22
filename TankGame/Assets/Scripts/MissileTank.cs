@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MissileTank : AiTank
 {
-    [SerializeField]
-    Missile missile;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +34,8 @@ public class MissileTank : AiTank
             //Reset the time
             this.elapsedTime = 0.0f;
 
-            BulletManager.Instance.SpawnFromPool("missile", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
+            BulletManager.Instance.SpawnFromPool("missile", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation, closestPlayer);
+            //missle.closestPlayer = closestPlayer;
             bullets--;
         }
     }
