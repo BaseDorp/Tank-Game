@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
         //SceneManager.LoadScene(/*Scene Name*/);
     }    
 
+    public void Settings()
+    {
+        // Settings
+    }
+
     public void Quit()
     {
         Application.Quit();

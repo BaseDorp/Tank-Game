@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
             }
         }
         // Removes object if colliding tank or another bullet
-        if (collision.collider.tag == "Player1" || collision.collider.tag == "Player2" || collision.collider.tag == "bullet" || collision.collider.tag == "tank")
+        if (collision.collider.tag == "Player" || collision.collider.tag == "bullet" || collision.collider.tag == "tank")
         {
             Disable();
         }

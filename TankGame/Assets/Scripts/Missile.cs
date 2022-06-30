@@ -50,7 +50,7 @@ public class Missile : MonoBehaviour
         // Removes object if colliding tank or another bullet
         if (collision.collider.tag == "Player" || collision.collider.tag == "bullet" || collision.collider.tag == "tank" || collision.collider.tag == "Wall")
         {
-            //this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 
