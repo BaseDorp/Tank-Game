@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    [SerializeField]
-    protected GameObject Bullet;
+    //[SerializeField]
+    //protected GameObject Bullet;
     [SerializeField]
     protected Transform Turret;
     [SerializeField]
@@ -22,11 +22,9 @@ public class Tank : MonoBehaviour
     private ParticleSystem smokeFX;
 
     // Tank Movement
-    [SerializeField]
     protected float turretRotSpeed = 150.0f;
     protected float baseRotSpeed = 400.0f;
-    [SerializeField]
-    protected float movementSpeed = 3.0f;
+    [SerializeField] protected float movementSpeed = 3.0f;
     protected Vector3 moveDirection;
     protected Vector3 input;
     
@@ -35,7 +33,7 @@ public class Tank : MonoBehaviour
     protected float elapsedTime;
 
     // Tank Attributes
-    public bool bTankAlive = true;
+    public bool bTankAlive = true; // TODO don't need this variable, i can check if the game object is active or not // but i dont feel like refactoring
     public enum TankColor { Blue, Green, Red, Yellow };
     public TankColor tankColor;
 
@@ -77,12 +75,12 @@ public class Tank : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Tank shot
-        if (collision.collider.tag == "bullet")
+        if (collision.collider.tag == "bullet" && this.bTankAlive)
         {
             explosionFX.Play();
             smokeFX.Play();
-            //this.enabled = false;
-            //this.bTankAlive = false;
+            this.enabled = false;
+            this.bTankAlive = false;
             this.baseRenderer.material.SetColor("_Color", Color.gray);
             this.turretRenderer.material.SetColor("_Color", Color.gray);
         }

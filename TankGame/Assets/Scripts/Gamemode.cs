@@ -11,12 +11,17 @@ public class Gamemode : MonoBehaviour
     public event EventHandler PlayerCountChanged;
     [SerializeField]
     public List<PlayerTank> Players;
-    //[SerializeField]
-    //GameObject PlayerPrefab;
+    [SerializeField]
+    public List<AiTank> Enemies;
 
     // Location where new players will spawn in
     [SerializeField]
     public Transform PlayerStartLocation;
+
+    [SerializeField]
+    GameObject GameOverScreen;
+    [SerializeField]
+    GameObject LevelCompleteScreen;
 
     void Awake()
     {
@@ -38,7 +43,61 @@ public class Gamemode : MonoBehaviour
 
     private void Start()
     {
-        
+        // TODO can make this array if the enemies arent getting changed at run time
+        Enemies = new List<AiTank>(FindObjectsOfType<AiTank>());
+    }
+
+    private void Update()
+    {
+        if (!CheckEnemyAlive())
+        {
+            //Time.timeScale = 0.0f;
+            LevelCompleteScreen.SetActive(true);
+            Debug.Log("Level Clear. All enemies defeated");
+        }
+        else if (!CheckPlayerAlive())
+        {
+            //Time.timeScale = 0.0f;
+            GameOverScreen.SetActive(true);
+            Debug.Log("Game Over. All players dead");
+        }
+
+    }
+
+    bool CheckPlayerAlive()
+    {
+        if (Players.Count < 1)
+        {
+            return false;
+        }
+
+        foreach (PlayerTank p in Players)
+        {
+            if (p.bTankAlive)
+            {
+                return true; // returns if any of the players are still alive
+            }
+
+        }
+        return false;
+    }
+
+    bool CheckEnemyAlive()
+    {
+        if (Enemies.Count < 1)
+        {
+            return false;
+        }
+
+        foreach (AiTank e in Enemies)
+        {
+            if (e.bTankAlive)
+            {
+                return true; // returns if any of the enemies are still alive
+            }
+        }
+
+        return false;
     }
 
     public void NewPlayer(PlayerTank player)
