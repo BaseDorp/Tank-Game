@@ -28,11 +28,17 @@ public class MovingTank : AiTank
            StartCoroutine(Reload());
         }
 
-        // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
 
 
         UpdateTarget();
+
+        // Stop targeting the player if game over
+        if (!Gamemode.Instance.CheckPlayerAlive())
+        {
+            this.enabled = false;
+            this.GetComponent<NavMeshAgent>().enabled = false;
+        }
     }
 
     protected override void Aim()
@@ -45,15 +51,12 @@ public class MovingTank : AiTank
             Ray Raycast = new Ray(this.transform.position, rayDir);
             RaycastHit hitInfo;
 
-            // Raycasts to each player for 'sightDistance' units
             if (Physics.Raycast(Raycast, out hitInfo, sightDistance))
             {
-                // Checks if the AI has line of sight to player
                 if (hitInfo.collider.GetComponent<PlayerTank>())
                 {
                     Debug.DrawLine(Raycast.origin, hitInfo.point, Color.blue);
 
-                    // Check which player is closest
                     if (hitInfo.distance < distanceFromPlayer || distanceFromPlayer == 0f)
                     {
                         distanceFromPlayer = hitInfo.distance;
@@ -66,7 +69,7 @@ public class MovingTank : AiTank
                     // TODO look at current player position - previous player position 
                     
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
-                    //FireBullet(); TODO uncommoent
+                    FireBullet();
                 }
                 else
                 {
@@ -90,7 +93,7 @@ public class MovingTank : AiTank
             }
         }
 
-        if (distanceFromPlayer < 5) // Resetting the closest player so it doesnt keep comparing it to the same location
+        if (distanceFromPlayer < 5) // Resetting the closest player so it doesnt keep comparing it to the same location // TODO what??
         {
             closestPlayer = new Vector3(100, 100, 100);
         }

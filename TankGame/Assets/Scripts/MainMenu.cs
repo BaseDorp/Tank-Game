@@ -17,12 +17,6 @@ public class MainMenu : MonoBehaviour
         LevelSelectObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ClickedLevel(int levelNumber)
     {
         SceneManager.LoadScene(sceneBuildIndex: levelNumber);

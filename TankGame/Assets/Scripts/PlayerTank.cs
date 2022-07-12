@@ -108,7 +108,7 @@ public class PlayerTank : Tank
 
     public void SetColor(Color newColor)
     {
-        if (bTankAlive)
+        if (bTankAlive) //  TODO change this
         {
             this.baseRenderer.material.SetColor("_Color", newColor);
             this.turretRenderer.material.SetColor("_Color", newColor);

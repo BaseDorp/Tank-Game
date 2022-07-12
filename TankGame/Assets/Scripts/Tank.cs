@@ -34,8 +34,8 @@ public class Tank : MonoBehaviour
 
     // Tank Attributes
     public bool bTankAlive = true; // TODO don't need this variable, i can check if the game object is active or not // but i dont feel like refactoring
-    public enum TankColor { Blue, Green, Red, Yellow };
-    public TankColor tankColor;
+    //public enum TankColor { Blue, Green, Red, Yellow }; 
+    //public TankColor tankColor;
 
     public virtual void FireBullet()
     {

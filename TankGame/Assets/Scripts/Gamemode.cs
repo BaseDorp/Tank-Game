@@ -64,7 +64,7 @@ public class Gamemode : MonoBehaviour
 
     }
 
-    bool CheckPlayerAlive()
+    public bool CheckPlayerAlive()
     {
         if (Players.Count < 1)
         {
@@ -82,7 +82,7 @@ public class Gamemode : MonoBehaviour
         return false;
     }
 
-    bool CheckEnemyAlive()
+    public bool CheckEnemyAlive()
     {
         if (Enemies.Count < 1)
         {
@@ -102,7 +102,7 @@ public class Gamemode : MonoBehaviour
 
     public void NewPlayer(PlayerTank player)
     {
-        //player.transform.position = PlayerStartLocation.position;
+        //player.transform.position = PlayerStartLocation.position; // TODO i dont think it was moving it to the right location so not doing this rn
         Players.Add(player);
         PlayerCountChanged?.Invoke(this, EventArgs.Empty);
     }

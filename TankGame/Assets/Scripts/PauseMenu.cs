@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     PlayerUICard[] UICards;
     [SerializeField]
-    GameObject AddInputMessage;
+    GameObject AddInputMessage; // tbh i dont remember why i have this so probably need to depricate
 
     bool isPaused = false;
 
@@ -72,7 +72,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
             isPaused = false;
         }
-        else
+        else if (Gamemode.Instance.CheckPlayerAlive() && Gamemode.Instance.CheckEnemyAlive())
         {
             MenuUI.SetActive(true);
             Time.timeScale = 0f;

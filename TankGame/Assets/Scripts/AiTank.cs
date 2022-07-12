@@ -43,6 +43,11 @@ public class AiTank : Tank
 
     protected virtual void Aim()
     {
+        if (!Gamemode.Instance.CheckPlayerAlive())
+        {
+            return; // leave method if there are no players alive
+        }
+
         float distanceFromPlayer = 0;
 
         for (int i = 0; i < Gamemode.Instance.Players.Count; i++)
