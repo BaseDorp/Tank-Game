@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f2220132228ef4ba1981073a5608bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 5905153815125654237, guid: e47937f2a9506cb48a7d0a0577cbb178, type: 3}
   Turret: {fileID: 4611416803405415863}
   Base: {fileID: 1045784221529563872}
   bulletSpawnPoint: {fileID: 7090528799442458925}
@@ -122,10 +121,8 @@ MonoBehaviour:
   turretRenderer: {fileID: 3879977087202421286}
   explosionFX: {fileID: 222825872362550645}
   smokeFX: {fileID: 1632791493145251572}
-  turretRotSpeed: 300
   movementSpeed: 3
   bTankAlive: 1
-  tankColor: 0
   controller: {fileID: 1309644939640169508}
   playerInput: {fileID: 5308702590531073726}
 --- !u!135 &1309644939640169509
@@ -247,7 +244,19 @@ MonoBehaviour:
     m_ActionId: 6b16f41e-833e-45d5-aceb-839be77fee1e
     m_ActionName: PlayerControls/Shoot
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7688e494-4c7f-4eef-8b5a-38a9e41002b5
     m_ActionName: PlayerControls/Pause/Unpause
   - m_PersistentCalls:
@@ -266,7 +275,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0ef7b458-61e6-4ae6-893e-d17e147ffefe
     m_ActionName: PlayerControls/Aim (Gamepad)[/XInputControllerWindows/rightStick]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1

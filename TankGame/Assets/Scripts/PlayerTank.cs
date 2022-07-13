@@ -11,7 +11,7 @@ public class PlayerTank : Tank
     CharacterController controller;
     public PlayerInput playerInput;
     [SerializeField]
-    public Vector3 lastKnownLocation { get; private set; }
+    public Vector3 lastKnownLocation { get; private set; } // TODO this should probably be in the AiTank class instead of the player
 
     private float aimValue;
     private Vector3 aim;
