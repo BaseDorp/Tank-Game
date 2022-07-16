@@ -29,11 +29,11 @@ public class Gamemode : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         // Limits fps count
@@ -49,13 +49,13 @@ public class Gamemode : MonoBehaviour
 
     private void Update()
     {
-        if (!CheckEnemyAlive())
+        if (!CheckEnemyAlive() && CheckPlayerAlive())
         {
             //Time.timeScale = 0.0f;
             LevelCompleteScreen.SetActive(true);
             Debug.Log("Level Clear. All enemies defeated");
         }
-        else if (!CheckPlayerAlive())
+        else if (!CheckPlayerAlive() && CheckEnemyAlive())
         {
             //Time.timeScale = 0.0f;
             GameOverScreen.SetActive(true);

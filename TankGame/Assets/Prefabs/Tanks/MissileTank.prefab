@@ -87,6 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -111,6 +112,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4762870335134271154
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +168,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -190,6 +193,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4762870336085364562
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,17 +270,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e6e1e223097c4da7b522eb1389a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
   Turret: {fileID: 5373114323093289777}
   Base: {fileID: 8929924552390925414}
   bulletSpawnPoint: {fileID: 4762870336085364561}
   baseRenderer: {fileID: 4762870335134271310}
   turretRenderer: {fileID: 4762870334675268795}
-  deadTank: {fileID: 2100000, guid: bdac1e82d7f4df448af782f41918f02b, type: 2}
+  explosionFX: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1,
+    type: 3}
+  smokeFX: {fileID: 198897649759126038, guid: 4d35711ba17dcd4409264568d9155360, type: 3}
   movementSpeed: 5
+  bTankAlive: 1
   bullets: 3
   reloadTime: 3
-  missile: {fileID: 0}
+  sightDistance: 100
+  QuestionMark: {fileID: 0}
+  ExclamationPoint: {fileID: 0}
+  ThinkingSpriteRenderer: {fileID: 0}
 --- !u!135 &9056293022308521831
 SphereCollider:
   m_ObjectHideFlags: 0

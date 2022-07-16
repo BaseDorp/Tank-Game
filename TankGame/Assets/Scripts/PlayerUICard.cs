@@ -18,7 +18,7 @@ public class PlayerUICard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerTank = Gamemode.Instance.Players[1]; // TODO not do this
+        playerTank = Gamemode.Instance.Players[0]; // TODO not do this
 
         InputDropdown = GetComponentInChildren<TMP_Dropdown>();
         ColorSlider = GetComponentInChildren<Slider>();

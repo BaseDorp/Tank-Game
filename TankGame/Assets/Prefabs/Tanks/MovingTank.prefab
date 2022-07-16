@@ -48,18 +48,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac15a4a9010d0b548b7f30da901ccbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 5905153815125654237, guid: e47937f2a9506cb48a7d0a0577cbb178, type: 3}
   Turret: {fileID: 2470478205113310383}
   Base: {fileID: 1383927547722120184}
   bulletSpawnPoint: {fileID: 3080700194103978191}
   baseRenderer: {fileID: 3080700194228723920}
   turretRenderer: {fileID: 3080700194976092965}
-  fireVFX: {fileID: 0}
-  deadTank: {fileID: 2100000, guid: bdac1e82d7f4df448af782f41918f02b, type: 2}
-  turretRotSpeed: 150
+  explosionFX: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1,
+    type: 3}
+  smokeFX: {fileID: 198897649759126038, guid: 4d35711ba17dcd4409264568d9155360, type: 3}
   movementSpeed: 3
   bTankAlive: 1
-  tankColor: 0
   bullets: 3
   reloadTime: 3
   sightDistance: 100
@@ -85,7 +83,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.53
-  m_BaseOffset: 0
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!135 &6406840924160656405

@@ -31,8 +31,11 @@ public class PlayerTank : Tank
         // Time since last bullet fired
         this.elapsedTime += Time.deltaTime;
 
-        UpdateMovement();
-        Aim();
+        if (Gamemode.Instance.CheckEnemyAlive())
+        {
+            UpdateMovement();
+            Aim();
+        }
     }
 
     public void UpdateMovementInput(InputAction.CallbackContext value)

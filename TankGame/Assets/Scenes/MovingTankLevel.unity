@@ -107,9 +107,9 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentHeight: 0.5
+    agentSlope: 30
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -139,7 +139,7 @@ GameObject:
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &18902953
@@ -336,7 +336,7 @@ GameObject:
   m_Name: Wall (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &326192544
@@ -1212,7 +1212,7 @@ GameObject:
   m_Name: Wall (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &771262899
@@ -1394,7 +1394,7 @@ PrefabInstance:
     - target: {fileID: 1309644939640169944, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1309644939640169944, guid: c8bd6d33df35b3b4382da001652988e6,
         type: 3}
@@ -1491,7 +1491,7 @@ GameObject:
   m_Name: Wall (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1058847008
@@ -1585,12 +1585,12 @@ PrefabInstance:
     - target: {fileID: 1124535217995070656, guid: bfb13986886faea45819c0fcd61eaa7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.41
+      value: 12.69
       objectReference: {fileID: 0}
     - target: {fileID: 1124535217995070656, guid: bfb13986886faea45819c0fcd61eaa7d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 1124535217995070656, guid: bfb13986886faea45819c0fcd61eaa7d,
         type: 3}
@@ -2322,7 +2322,7 @@ GameObject:
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &2081342145
