@@ -123,4 +123,9 @@ public class MovingTank : AiTank
         bullets = 3;
         gameObject.GetComponent<NavMeshAgent>().isStopped = false;
     }
+
+    private void OnDisable()
+    {
+        GetComponent<NavMeshAgent>().enabled = false;
+    }
 }
