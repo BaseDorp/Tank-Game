@@ -69,7 +69,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players: []
   Enemies: []
-  PlayerStartLocation: {fileID: 0}
+  Levels: []
+  currentLevel: 1
+  playerSpawnLoc: []
   GameOverScreen: {fileID: 0}
   LevelCompleteScreen: {fileID: 0}
 --- !u!114 &4072128457084674236

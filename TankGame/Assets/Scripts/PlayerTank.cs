@@ -16,6 +16,7 @@ public class PlayerTank : Tank
     private float aimValue;
     private Vector3 aim;
     bool mouseInputType;
+    Color tankColor;
 
     private void Start()
     {
@@ -115,6 +116,7 @@ public class PlayerTank : Tank
         {
             this.baseRenderer.material.SetColor("_Color", newColor);
             this.turretRenderer.material.SetColor("_Color", newColor);
+            tankColor = newColor;
         }
     }
 
@@ -131,5 +133,12 @@ public class PlayerTank : Tank
         {
             mouseInputType = false;
         }
+    }
+
+    private void OnEnable()
+    {
+        bTankAlive = true;
+        baseRenderer.material.SetColor("_Color", tankColor);
+        turretRenderer.material.SetColor("_Color", tankColor);
     }
 }

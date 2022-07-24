@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Gamemode : MonoBehaviour
 {
@@ -12,11 +13,17 @@ public class Gamemode : MonoBehaviour
     [SerializeField]
     public List<PlayerTank> Players;
     [SerializeField]
-    public List<AiTank> Enemies;
+    private AiTank[] Enemies;
+
+    [SerializeField]
+    private GameObject[] Levels;
+    [SerializeField]
+    int currentLevel; // TODO make this show as +1 in inspector to be less confusing than 0 based indexing
 
     // Location where new players will spawn in
     [SerializeField]
-    public Transform PlayerStartLocation;
+    public GameObject[] playerSpawnLoc;
+    
 
     [SerializeField]
     GameObject GameOverScreen;
@@ -29,22 +36,23 @@ public class Gamemode : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         // Limits fps count
         Application.targetFrameRate = 60;
-
+        //Instantiate(Levels[currentLevel]);
     }
 
     private void Start()
     {
-        // TODO can make this array if the enemies arent getting changed at run time
-        Enemies = new List<AiTank>(FindObjectsOfType<AiTank>());
+        Enemies = FindObjectsOfType<AiTank>();
+
+        playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
+        
     }
 
     private void Update()
@@ -84,7 +92,7 @@ public class Gamemode : MonoBehaviour
 
     public bool CheckEnemyAlive()
     {
-        if (Enemies.Count < 1)
+        if (Enemies.Length < 1)
         {
             return false;
         }
@@ -112,5 +120,37 @@ public class Gamemode : MonoBehaviour
         Players.Remove(player);
         Destroy(player.gameObject);
         PlayerCountChanged(this, EventArgs.Empty);
+    }
+
+    public void NextLevel()
+    {
+        if (currentLevel >= Levels.Length)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+
+        // hide current level and activate the next level
+        Destroy(GameObject.FindGameObjectWithTag("level"));
+        currentLevel++;
+        Instantiate(Levels[currentLevel]);
+        RespawnPlayers();
+    }
+
+    public void RestartLevel()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("level"));
+        Instantiate(Levels[currentLevel]);
+        RespawnPlayers();
+    }
+
+    void RespawnPlayers()
+    {
+        for (int i = 0; i < Players.Count; i++)
+        {
+            Players[i].transform.position = playerSpawnLoc[i].transform.position;
+            Players[i].enabled = true;
+        }
     }
 }
