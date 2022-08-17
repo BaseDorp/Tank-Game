@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     PlayerUICard[] UICards;
     [SerializeField]
-    GameObject AddInputMessage; // UI text prompt that shows how to add more players
+    GameObject AddInputMessage; // text box that says more player can join
 
     bool isPaused = false;
 
@@ -66,9 +66,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("Check players: " + Gamemode.Instance.CheckPlayerAlive());
-        Debug.Log("Check enemy: " + Gamemode.Instance.CheckEnemyAlive());
-
         if (isPaused)
         {
             MenuUI.SetActive(false);

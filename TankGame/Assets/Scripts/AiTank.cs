@@ -20,9 +20,11 @@ public class AiTank : Tank
     [SerializeField]
     protected SpriteRenderer ThinkingSpriteRenderer;
 
-    void Start()
+    protected virtual void Start()
     { 
-        closestPlayer = new Vector3(100, 100, 100);   
+        closestPlayer = new Vector3(100, 100, 100);
+
+        Gamemode.Instance.NewEnemy(this);
     }
 
     // Update is called once per frame

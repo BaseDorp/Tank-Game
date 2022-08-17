@@ -19,7 +19,8 @@ public class MainMenu : MonoBehaviour
 
     public void ClickedLevel(int levelNumber)
     {
-        SceneManager.LoadScene(sceneBuildIndex: levelNumber);
+        //Gamemode.Instance.LoadLevel(levelNumber);
+        //Gamemode.Instance.currentLevel = levelNumber;
     }
 
     public void Sandbox()

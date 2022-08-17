@@ -8,8 +8,9 @@ public class MovingTank : AiTank
     private NavMeshAgent[] navAgents;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         // Setting default values
         gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
@@ -111,7 +112,7 @@ public class MovingTank : AiTank
         {
             foreach (NavMeshAgent agent in navAgents)
             {
-                agent.destination = closestPlayer;
+                agent.destination = closestPlayer; // null reference when retrying level
             }
         }
     }

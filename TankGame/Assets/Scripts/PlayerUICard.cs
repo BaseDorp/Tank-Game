@@ -13,7 +13,7 @@ public class PlayerUICard : MonoBehaviour
     TMPro.TMP_Dropdown InputDropdown;
     Slider ColorSlider;
 
-    public PlayerTank playerTank;
+    public PlayerTank playerTank; // TODO
 
     // Start is called before the first frame update
     void Start()

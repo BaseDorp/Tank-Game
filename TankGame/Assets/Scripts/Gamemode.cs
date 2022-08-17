@@ -13,7 +13,7 @@ public class Gamemode : MonoBehaviour
     [SerializeField]
     public List<PlayerTank> Players;
     [SerializeField]
-    private AiTank[] Enemies;
+    private List<AiTank> Enemies;
 
     [SerializeField]
     private GameObject[] Levels;
@@ -49,27 +49,22 @@ public class Gamemode : MonoBehaviour
 
     private void Start()
     {
-        Enemies = FindObjectsOfType<AiTank>();
-
         playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
         
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (!CheckEnemyAlive() && CheckPlayerAlive())
         {
             //Time.timeScale = 0.0f;
             LevelCompleteScreen.SetActive(true);
-            Debug.Log("Level Clear. All enemies defeated");
         }
         else if (!CheckPlayerAlive() && CheckEnemyAlive())
         {
             //Time.timeScale = 0.0f;
             GameOverScreen.SetActive(true);
-            Debug.Log("Game Over. All players dead");
         }
-
     }
 
     public bool CheckPlayerAlive()
@@ -92,7 +87,7 @@ public class Gamemode : MonoBehaviour
 
     public bool CheckEnemyAlive()
     {
-        if (Enemies.Length < 1)
+        if (Enemies.Count < 1)
         {
             return false;
         }
@@ -110,7 +105,6 @@ public class Gamemode : MonoBehaviour
 
     public void NewPlayer(PlayerTank player)
     {
-        //player.transform.position = PlayerStartLocation.position; // TODO i dont think it was moving it to the right location so not doing this rn
         Players.Add(player);
         PlayerCountChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -120,6 +114,11 @@ public class Gamemode : MonoBehaviour
         Players.Remove(player);
         Destroy(player.gameObject);
         PlayerCountChanged(this, EventArgs.Empty);
+    }
+
+    public void NewEnemy(AiTank enemy)
+    {
+        Enemies.Add(enemy);
     }
 
     public void NextLevel()
@@ -141,8 +140,11 @@ public class Gamemode : MonoBehaviour
     public void RestartLevel()
     {
         Destroy(GameObject.FindGameObjectWithTag("level"));
+        Enemies.Clear();
         Instantiate(Levels[currentLevel]);
+        playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
         RespawnPlayers();
+        // TODO need to remove any bullets still in scene
     }
 
     void RespawnPlayers()

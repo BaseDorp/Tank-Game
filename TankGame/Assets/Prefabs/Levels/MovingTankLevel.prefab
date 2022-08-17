@@ -69,6 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5529783890557638913}
+  - component: {fileID: 1314478762845155441}
   m_Layer: 0
   m_Name: MovingTankLevel
   m_TagString: level
@@ -97,6 +98,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314478762845155441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125260421830506725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590316008a9f19047a840be935b27663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navData: {fileID: 23800000, guid: c89651c83ec904e49a7700f973a044f8, type: 2}
 --- !u!1 &6062536074773278806
 GameObject:
   m_ObjectHideFlags: 0

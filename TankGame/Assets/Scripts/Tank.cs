@@ -19,7 +19,7 @@ public class Tank : MonoBehaviour
     [SerializeField]
     protected ParticleSystem explosionFX;
     [SerializeField]
-    private ParticleSystem smokeFX;
+    protected ParticleSystem smokeFX;
 
     // Tank Movement
     protected float turretRotSpeed = 150.0f;

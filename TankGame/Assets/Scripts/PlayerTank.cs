@@ -140,5 +140,6 @@ public class PlayerTank : Tank
         bTankAlive = true;
         baseRenderer.material.SetColor("_Color", tankColor);
         turretRenderer.material.SetColor("_Color", tankColor);
+        smokeFX.Stop();
     }
 }

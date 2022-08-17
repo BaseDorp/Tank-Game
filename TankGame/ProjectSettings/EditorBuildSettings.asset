@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AiTankLevel.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MovingTankLevel.unity
     guid: a998f7e2b18d5a845ad8fceb35193d8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RadarLevel.unity
     guid: afca28c4b7d01ba4ab1b93e1eaf4db3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MissileLevel.unity
     guid: 807a3fbe724f0d34cb8680b0668510f9
   m_configObjects: {}
