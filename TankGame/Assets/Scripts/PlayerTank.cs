@@ -114,9 +114,12 @@ public class PlayerTank : Tank
     {
         if (bTankAlive) //  TODO change this
         {
-            this.baseRenderer.material.SetColor("_Color", newColor);
-            this.turretRenderer.material.SetColor("_Color", newColor);
             tankColor = newColor;
+            //baseRenderer.materials[1].SetColor("_Color", newColor);
+            //baseRenderer.materials[0].SetColor("_Color", Color.black);
+            //this.turretRenderer.materials[1].SetColor("_Color", newColor);
+            //turretRenderer.materials[0].SetColor("_Color", Color.black);
+            Debug.Log(baseRenderer.materials.Length);
         }
     }
 
@@ -138,8 +141,7 @@ public class PlayerTank : Tank
     private void OnEnable()
     {
         bTankAlive = true;
-        baseRenderer.material.SetColor("_Color", tankColor);
-        turretRenderer.material.SetColor("_Color", tankColor);
+        SetColor(tankColor);        
         smokeFX.Stop();
     }
 }

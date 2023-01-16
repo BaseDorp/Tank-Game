@@ -63,4 +63,15 @@ public class BulletManager : MonoBehaviour
 
         bulletPool[_tag].Enqueue(spawnObject);
     }
+
+    public void DeactivateAllBullets()
+    {
+        foreach(Pool p in pools)
+        {
+            for (int i = 0; i < p.poolSize; i++)
+            {
+
+            }
+        }
+    }
 }

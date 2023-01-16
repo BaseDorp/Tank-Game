@@ -18,7 +18,7 @@ public class Gamemode : MonoBehaviour
     [SerializeField]
     private GameObject[] Levels;
     [SerializeField]
-    int currentLevel; // TODO make this show as +1 in inspector to be less confusing than 0 based indexing
+    public int currentLevel { get; private set; } // TODO make this show as +1 in inspector to be less confusing than 0 based indexing
 
     // Location where new players will spawn in
     [SerializeField]
@@ -50,7 +50,7 @@ public class Gamemode : MonoBehaviour
     private void Start()
     {
         playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
-        
+        RestartLevel();
     }
 
     private void LateUpdate()
@@ -134,7 +134,25 @@ public class Gamemode : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("level"));
         currentLevel++;
         Instantiate(Levels[currentLevel]);
+  
         RespawnPlayers();
+    }
+
+    public void LoadLevel(int level)
+    {
+        if (level < Levels.Length) 
+        {
+            // hide current level and activate the next level
+            Destroy(GameObject.FindGameObjectWithTag("level"));
+            currentLevel = level;
+            Instantiate(Levels[level]);
+
+            RespawnPlayers();
+        }
+        else
+        {
+            Debug.Log("Level outside of range");
+        }
     }
 
     public void RestartLevel()

@@ -19,8 +19,8 @@ public class MainMenu : MonoBehaviour
 
     public void ClickedLevel(int levelNumber)
     {
-        //Gamemode.Instance.LoadLevel(levelNumber);
-        //Gamemode.Instance.currentLevel = levelNumber;
+        // -1 because I want the level 1 to show as 1 not 0 in the inspector // TODO fix so its the same across scripts
+        Gamemode.Instance.LoadLevel(levelNumber-1);
     }
 
     public void Sandbox()
