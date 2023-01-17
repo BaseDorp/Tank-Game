@@ -121,6 +121,7 @@ public class Gamemode : MonoBehaviour
         Enemies.Add(enemy);
     }
 
+    // Used by the Level Complete UI
     public void NextLevel()
     {
         if (currentLevel >= Levels.Length)
@@ -134,10 +135,11 @@ public class Gamemode : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("level"));
         currentLevel++;
         Instantiate(Levels[currentLevel]);
-  
+
         RespawnPlayers();
     }
 
+    // Used by the Main Menu level select
     public void LoadLevel(int level)
     {
         if (level < Levels.Length) 

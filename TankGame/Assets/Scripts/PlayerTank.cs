@@ -63,6 +63,7 @@ public class PlayerTank : Tank
 
         // player movement
         controller.Move(input * this.movementSpeed * Time.deltaTime);
+        controller.Move(new Vector3(0, gravity, 0));
         this.BaseRotation(this.input);
     }
 
