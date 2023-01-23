@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.Pause();
         Gamemode.Instance.PlayerCountChanged += UpdateUICards;
 
         // TODO copied from UpdateUICards. Find a way to call the method instead of copying
@@ -71,18 +70,28 @@ public class PauseMenu : MonoBehaviour
             MenuUI.SetActive(false);
             Time.timeScale = 1f;
             isPaused = false;
+            Debug.Log("<color=yellow>Game Unpaused</color>");
         }
         else if (Gamemode.Instance.CheckPlayerAlive() && Gamemode.Instance.CheckEnemyAlive())
         {
             MenuUI.SetActive(true);
             Time.timeScale = 0f;
             isPaused = true;
+            Debug.Log("<color=yellow>Game Paused</color>");
+        }
+    }
+
+    public void ShowCards()
+    {
+        for (int i = 1; i < UICards.Length; i++)
+        {
+            UICards[i].gameObject.SetActive(false);
         }
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        // TODO
+        // Called by GameOver and NextLevel Screen
     }
 }

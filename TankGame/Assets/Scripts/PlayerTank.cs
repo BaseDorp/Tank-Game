@@ -120,7 +120,6 @@ public class PlayerTank : Tank
             //baseRenderer.materials[0].SetColor("_Color", Color.black);
             //this.turretRenderer.materials[1].SetColor("_Color", newColor);
             //turretRenderer.materials[0].SetColor("_Color", Color.black);
-            Debug.Log(baseRenderer.materials.Length);
         }
     }
 

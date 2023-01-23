@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Gamemode : MonoBehaviour
 {
     // Singleton Instance
     public static Gamemode Instance { get; private set; }
+    [SerializeField]
+    PauseMenu pauseMenu;
 
     public event EventHandler PlayerCountChanged;
     [SerializeField]
@@ -24,7 +27,6 @@ public class Gamemode : MonoBehaviour
     [SerializeField]
     public GameObject[] playerSpawnLoc;
     
-
     [SerializeField]
     GameObject GameOverScreen;
     [SerializeField]
@@ -44,17 +46,19 @@ public class Gamemode : MonoBehaviour
 
         // Limits fps count
         Application.targetFrameRate = 60;
-        //Instantiate(Levels[currentLevel]);
     }
 
     private void Start()
     {
-        playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
-        RestartLevel();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     private void LateUpdate()
     {
+        if (Enemies.Count == 0)
+        {
+            return;
+        }
         if (!CheckEnemyAlive() && CheckPlayerAlive())
         {
             //Time.timeScale = 0.0f;
@@ -71,7 +75,7 @@ public class Gamemode : MonoBehaviour
     {
         if (Players.Count < 1)
         {
-            return false;
+            return false; // TODO see comment in CheckEnemyAlive()
         }
 
         foreach (PlayerTank p in Players)
@@ -87,9 +91,9 @@ public class Gamemode : MonoBehaviour
 
     public bool CheckEnemyAlive()
     {
-        if (Enemies.Count < 1)
+        if (Enemies.Count < 1) 
         {
-            return false;
+            return true; // TODO technically this should return false but the PauseMenu script calls this so setting it to true allows the game to pause before the enemies are spawned
         }
 
         foreach (AiTank e in Enemies)
@@ -135,20 +139,21 @@ public class Gamemode : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("level"));
         currentLevel++;
         Instantiate(Levels[currentLevel]);
-
+        //playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
         RespawnPlayers();
     }
 
     // Used by the Main Menu level select
     public void LoadLevel(int level)
     {
+        level--;
         if (level < Levels.Length) 
         {
             // hide current level and activate the next level
             Destroy(GameObject.FindGameObjectWithTag("level"));
             currentLevel = level;
             Instantiate(Levels[level]);
-
+            //playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
             RespawnPlayers();
         }
         else
@@ -163,6 +168,7 @@ public class Gamemode : MonoBehaviour
         Enemies.Clear();
         Instantiate(Levels[currentLevel]);
         playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
+        //Debug.Log(playerSpawnLoc[0].name);
         RespawnPlayers();
         // TODO need to remove any bullets still in scene
     }
@@ -171,8 +177,12 @@ public class Gamemode : MonoBehaviour
     {
         for (int i = 0; i < Players.Count; i++)
         {
-            Players[i].transform.position = playerSpawnLoc[i].transform.position;
             Players[i].enabled = true;
+            //Players[i].transform.position = playerSpawnLoc[i].transform.position; 
+            Debug.Log(playerSpawnLoc.Length);
         }
+
+        // Pause game // bring up lobby menu
+        pauseMenu.Pause();
     }
 }
