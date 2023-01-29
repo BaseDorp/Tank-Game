@@ -277,10 +277,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2000723830, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
+      propertyPath: bullets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000723830, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
       propertyPath: missile
       value: 
       objectReference: {fileID: 1174545029153567692, guid: 3761d316093a6b148b2621e64a2b424d,
         type: 3}
+    - target: {fileID: 2000723830, guid: c6a387cab5593c54b895e025f9dc5662, type: 3}
+      propertyPath: reloadTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7440759151335398238, guid: c6a387cab5593c54b895e025f9dc5662,
         type: 3}
       propertyPath: m_RootOrder

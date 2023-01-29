@@ -15,6 +15,7 @@ public class UpdateNavData : MonoBehaviour
 
     private void OnEnable()
     {
+        NavMesh.RemoveAllNavMeshData();
         navInstance = NavMesh.AddNavMeshData(navData);
     }
 

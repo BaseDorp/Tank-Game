@@ -131,7 +131,7 @@ public class Gamemode : MonoBehaviour
         if (currentLevel >= Levels.Length)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("MainMenu");
+            // Return to Main Menu
             return;
         }
 
@@ -168,13 +168,13 @@ public class Gamemode : MonoBehaviour
         Enemies.Clear();
         Instantiate(Levels[currentLevel]);
         playerSpawnLoc = GameObject.FindGameObjectsWithTag("spawn");
-        //Debug.Log(playerSpawnLoc[0].name);
         RespawnPlayers();
         // TODO need to remove any bullets still in scene
     }
 
     void RespawnPlayers()
     {
+
         for (int i = 0; i < Players.Count; i++)
         {
             Players[i].enabled = true;

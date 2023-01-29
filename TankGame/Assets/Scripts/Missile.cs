@@ -7,14 +7,17 @@ public class Missile : MonoBehaviour
 {
     [SerializeField]
     float missileSpeed;
+    [SerializeField]
+    float lifeTime;
+    float timeAlive;
 
     private NavMeshAgent[] navAgents;
-    private Vector3 closestPlayer;
+    private GameObject targetPlayer;
 
     void OnEnable()
     {
         // TODO find closest player
-        closestPlayer = Gamemode.Instance.Players[0].transform.position;
+        targetPlayer = Gamemode.Instance.Players[0].gameObject;
     }
 
     // Start is called before the first frame update
@@ -32,16 +35,23 @@ public class Missile : MonoBehaviour
 
         foreach (NavMeshAgent agent in navAgents)
         {
-            agent.destination = closestPlayer;
+            agent.destination = targetPlayer.transform.position;
             Debug.Log(agent.destination);
         }
+
+        if (timeAlive >= lifeTime) 
+        {
+            this.gameObject.SetActive(false);        
+        }
+        timeAlive += Time.deltaTime;
     }
 
     void Rotate()
     {
-        if (closestPlayer != Vector3.zero)
+        if (targetPlayer.transform.position != Vector3.zero)
         {
-            this.transform.LookAt(closestPlayer);
+            this.transform.LookAt(targetPlayer.transform.position);
+            transform.eulerAngles= new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
         }
     }
 
