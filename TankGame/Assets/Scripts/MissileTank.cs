@@ -8,8 +8,7 @@ public class MissileTank : AiTank
     protected override void Start()
     {
         base.Start();
-        //Player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerTank>();
-        //player1LastLoc = this.transform.position;
+        shootRate = 3; // TODO should be a serialized field
     }
 
     // Update is called once per frame
@@ -36,7 +35,6 @@ public class MissileTank : AiTank
             this.elapsedTime = 0.0f;
 
             BulletManager.Instance.SpawnFromPool("missile", this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation, closestPlayer);
-            //missle.closestPlayer = closestPlayer;
             bullets--;
         }
     }

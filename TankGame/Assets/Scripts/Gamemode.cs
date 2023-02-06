@@ -55,6 +55,8 @@ public class Gamemode : MonoBehaviour
 
     private void LateUpdate()
     {
+
+        // TODO these checks would be more effecient as coroutines that is called whenever a tank dies
         if (Enemies.Count == 0)
         {
             return;

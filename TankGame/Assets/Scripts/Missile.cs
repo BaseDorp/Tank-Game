@@ -6,24 +6,47 @@ using UnityEngine.AI;
 public class Missile : MonoBehaviour
 {
     [SerializeField]
-    float missileSpeed;
+    float startSpeed;
+    [SerializeField]
+    float endSpeed;
+    [SerializeField]
+    float currentSpeed;
     [SerializeField]
     float lifeTime;
+    [SerializeField]
+    float endSpeedTime;
+
     float timeAlive;
 
+    [SerializeField]
+    NavMeshAgent navAgent;
     private NavMeshAgent[] navAgents;
     private GameObject targetPlayer;
 
     void OnEnable()
     {
-        // TODO find closest player
+        // By default, goes after player 1
         targetPlayer = Gamemode.Instance.Players[0].gameObject;
+        // See if any other player is closer.
+        foreach (PlayerTank player in Gamemode.Instance.Players)
+        {
+            float currentDistance = Vector3.Distance(targetPlayer.transform.position, this.transform.position);
+            float otherDistance = Vector3.Distance(player.transform.position, this.transform.position);
+            if (currentDistance > otherDistance)
+            {
+                targetPlayer = player.gameObject;
+            }
+        }
+
+        currentSpeed = 1;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<NavMeshAgent>().speed = missileSpeed;
+        navAgent.speed = startSpeed;
+        //gameObject.GetComponent<NavMeshAgent>().speed = startSpeed;
+        currentSpeed = startSpeed;
 
         navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
     }
@@ -33,17 +56,31 @@ public class Missile : MonoBehaviour
     {
         Rotate();
 
-        foreach (NavMeshAgent agent in navAgents)
-        {
-            agent.destination = targetPlayer.transform.position;
-            Debug.Log(agent.destination);
-        }
+        navAgent.destination = targetPlayer.transform.position;
 
         if (timeAlive >= lifeTime) 
         {
             this.gameObject.SetActive(false);        
         }
         timeAlive += Time.deltaTime;
+
+        
+
+        navAgent.speed = currentSpeed;        
+    }
+
+    private void FixedUpdate()
+    {
+        if (timeAlive >= endSpeedTime)
+        {
+            currentSpeed = endSpeed;
+        }
+        else
+        {
+            currentSpeed = endSpeed * (timeAlive / endSpeedTime);
+        }
+
+        Debug.Log(currentSpeed);
     }
 
     void Rotate()
