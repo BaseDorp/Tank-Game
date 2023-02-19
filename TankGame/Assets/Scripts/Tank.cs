@@ -72,10 +72,10 @@ public class Tank : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         // Tank shot
-        if (collision.collider.tag == "bullet" && this.bTankAlive)
+        if (collision.tag == "bullet" && this.bTankAlive)
         {
             explosionFX.Play();
             smokeFX.Play();

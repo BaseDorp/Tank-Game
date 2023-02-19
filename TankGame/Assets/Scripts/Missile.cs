@@ -15,13 +15,16 @@ public class Missile : MonoBehaviour
     float lifeTime;
     [SerializeField]
     float endSpeedTime;
+    [SerializeField]
+    float rotationSpeed;
 
     float timeAlive;
 
-    [SerializeField]
-    NavMeshAgent navAgent;
-    private NavMeshAgent[] navAgents;
     private GameObject targetPlayer;
+
+    [SerializeField]
+    ParticleSystem explosionFX;
+
 
     void OnEnable()
     {
@@ -44,11 +47,7 @@ public class Missile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        navAgent.speed = startSpeed;
-        //gameObject.GetComponent<NavMeshAgent>().speed = startSpeed;
         currentSpeed = startSpeed;
-
-        navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
     }
 
     // Update is called once per frame
@@ -56,17 +55,11 @@ public class Missile : MonoBehaviour
     {
         Rotate();
 
-        navAgent.destination = targetPlayer.transform.position;
-
         if (timeAlive >= lifeTime) 
         {
             this.gameObject.SetActive(false);        
         }
-        timeAlive += Time.deltaTime;
-
-        
-
-        navAgent.speed = currentSpeed;        
+        timeAlive += Time.deltaTime;      
     }
 
     private void FixedUpdate()
@@ -80,25 +73,32 @@ public class Missile : MonoBehaviour
             currentSpeed = endSpeed * (timeAlive / endSpeedTime);
         }
 
-        Debug.Log(currentSpeed);
+        transform.position += transform.forward * currentSpeed * Time.deltaTime;
     }
 
+    // Lerps the current rotation to start rotating towards the target
     void Rotate()
     {
-        if (targetPlayer.transform.position != Vector3.zero)
-        {
-            this.transform.LookAt(targetPlayer.transform.position);
-            transform.eulerAngles= new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-        }
+        Vector3 direction = targetPlayer.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.eulerAngles= new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // Removes object if colliding tank or another bullet
-        if (collision.collider.tag == "Player" || collision.collider.tag == "bullet" || collision.collider.tag == "tank" || collision.collider.tag == "Wall")
+        if (other.tag == "Player" || other.tag == "bullet" || other.tag == "tank" || other.tag == "Wall")
         {
-            this.gameObject.SetActive(false);
+            explosionFX.Play();
+            //float particleLifetime = explosionFX.main explosionFX.main.duration + explosionFX.main.startLifetime;
+
+            //Invoke("DeactivateSelf", particleLifetime);
         }
     }
 
+    private void DeactivateSelf()
+    {
+        this.gameObject.SetActive(false);
+    }
 }

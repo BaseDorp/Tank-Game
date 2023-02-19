@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7440759151335398238}
   - component: {fileID: 2000723830}
-  - component: {fileID: 9056293022308521831}
+  - component: {fileID: 2228208157533393418}
   m_Layer: 0
   m_Name: MissileTank
   m_TagString: tank
@@ -286,18 +286,18 @@ MonoBehaviour:
   QuestionMark: {fileID: 0}
   ExclamationPoint: {fileID: 0}
   ThinkingSpriteRenderer: {fileID: 0}
---- !u!135 &9056293022308521831
-SphereCollider:
+--- !u!65 &2228208157533393418
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7440759151335398239}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Size: {x: 1.36, y: 1.3, z: 2.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8687282140017051308
 GameObject:
