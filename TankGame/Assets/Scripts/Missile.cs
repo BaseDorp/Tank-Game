@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,11 +20,15 @@ public class Missile : MonoBehaviour
     float rotationSpeed;
 
     float timeAlive;
+    bool isAlive;
 
     private GameObject targetPlayer;
 
     [SerializeField]
     ParticleSystem explosionFX;
+    [SerializeField]
+    GameObject missileMesh;
+    CapsuleCollider collider;
 
 
     void OnEnable()
@@ -41,39 +46,53 @@ public class Missile : MonoBehaviour
             }
         }
 
-        currentSpeed = 1;
-    }
+        collider = this.gameObject.GetComponent<CapsuleCollider>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
+        currentSpeed = 1;
         currentSpeed = startSpeed;
+        isAlive = true;
+        collider.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rotate();
-
-        if (timeAlive >= lifeTime) 
+        if (isAlive)
         {
-            this.gameObject.SetActive(false);        
+            Rotate();
+
+            if (timeAlive >= lifeTime)
+            {
+                explosionFX.Play();
+                isAlive = false;
+                collider.enabled= false;
+                missileMesh.SetActive(false);
+            }
+            timeAlive += Time.deltaTime;
+
         }
-        timeAlive += Time.deltaTime;      
+        else if (!explosionFX.isPlaying)
+        {
+            this.gameObject.SetActive(false);
+        }
+
     }
 
     private void FixedUpdate()
     {
-        if (timeAlive >= endSpeedTime)
+        if (isAlive)
         {
-            currentSpeed = endSpeed;
-        }
-        else
-        {
-            currentSpeed = endSpeed * (timeAlive / endSpeedTime);
-        }
+            if (timeAlive >= endSpeedTime)
+            {
+                currentSpeed = endSpeed;
+            }
+            else
+            {
+                currentSpeed = endSpeed * (timeAlive / endSpeedTime);
+            }
 
-        transform.position += transform.forward * currentSpeed * Time.deltaTime;
+            transform.position += transform.forward * currentSpeed * Time.deltaTime;
+        }
     }
 
     // Lerps the current rotation to start rotating towards the target
@@ -85,20 +104,15 @@ public class Missile : MonoBehaviour
         transform.eulerAngles= new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         // Removes object if colliding tank or another bullet
-        if (other.tag == "Player" || other.tag == "bullet" || other.tag == "tank" || other.tag == "Wall")
+        if (other.collider.tag == "Player" || other.collider.tag == "bullet" || other.collider.tag == "tank" || other.collider.tag == "Wall" && isAlive)
         {
             explosionFX.Play();
-            //float particleLifetime = explosionFX.main explosionFX.main.duration + explosionFX.main.startLifetime;
-
-            //Invoke("DeactivateSelf", particleLifetime);
+            isAlive = false;
+            missileMesh.SetActive(false);
+            collider.enabled = false;
         }
-    }
-
-    private void DeactivateSelf()
-    {
-        this.gameObject.SetActive(false);
     }
 }
