@@ -78,7 +78,7 @@ public class AiTank : Tank
                     // TODO look at current player position - previous player position 
                     //ThinkingSpriteRenderer.sprite = ExclamationPoint; // TODO should probably move this SOC
                     this.Turret.LookAt(new Vector3(closestPlayer.x, this.transform.position.y, closestPlayer.z));
-                    FireBullet(); //TODO uncommoent
+                    //FireBullet(); //TODO uncommoent
                 }
                 else
                 {

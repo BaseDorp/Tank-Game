@@ -57,20 +57,20 @@ public class Gamemode : MonoBehaviour
     {
 
         // TODO these checks would be more effecient as coroutines that is called whenever a tank dies
-        if (Enemies.Count == 0)
-        {
-            return;
-        }
-        if (!CheckEnemyAlive() && CheckPlayerAlive())
-        {
-            //Time.timeScale = 0.0f;
-            LevelCompleteScreen.SetActive(true);
-        }
-        else if (!CheckPlayerAlive() && CheckEnemyAlive())
-        {
-            //Time.timeScale = 0.0f;
-            GameOverScreen.SetActive(true);
-        }
+        //if (Enemies.Count == 0)
+        //{
+        //    return;
+        //}
+        //if (!CheckEnemyAlive() && CheckPlayerAlive())
+        //{
+        //    //Time.timeScale = 0.0f;
+        //    LevelCompleteScreen.SetActive(true);
+        //}
+        //else if (!CheckPlayerAlive() && CheckEnemyAlive())
+        //{
+        //    //Time.timeScale = 0.0f;
+        //    GameOverScreen.SetActive(true);
+        //}
     }
 
     public bool CheckPlayerAlive()
